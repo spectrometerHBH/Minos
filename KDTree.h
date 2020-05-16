@@ -1,7 +1,8 @@
 #ifndef KDTREE_H
 #define KDTREE_H
 
-#include "PointCloud.h"
+#include"Ogre.h"
+#include"PointCloud.h"
 
 class PointCloud;
 
@@ -19,11 +20,12 @@ public:
     bool fetchPoint(const Ogre::PlaneBoundedVolume*, std::vector<int>&);
 
 private:
-    int sortIndex;
+    inline static int sortIndex;
+    inline static const PointCloud* sortPc;
 
     void buildTree();
     KDTree::Node* buildTree(int, std::vector<int>&, int, int);
-    bool cmp(int, int);
+    static bool cmp(int, int);
     int fetchPoint(Node*, const Ogre::PlaneBoundedVolume*, std::vector<int>&, bool);
 
 private:

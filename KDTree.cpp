@@ -29,6 +29,7 @@ KDTree::Node::~Node()
 
 void KDTree::buildTree()
 {
+    sortPc = pc;
     std::vector<int> tmp;
     for(int i = 0; i < pc->pos.size(); ++i)
         tmp.push_back(i);
@@ -65,7 +66,7 @@ KDTree::Node* KDTree::buildTree(int index, std::vector<int>& list, int l, int r)
 
 bool KDTree::cmp(int l, int r)
 {
-    return pc->pos[l][sortIndex] < pc->pos[r][sortIndex];
+    return sortPc->pos[l][sortIndex] < sortPc->pos[r][sortIndex];
 }
 
 bool KDTree::fetchPoint(const Ogre::PlaneBoundedVolume* plane, std::vector<int>& result)
