@@ -11,8 +11,8 @@ bool PCNode::fetchPoint(const Ogre::PlaneBoundedVolume& _plane, std::vector<int>
     {
         Ogre::Vector3 origin = - plane.planes[i].d * plane.planes[i].normal;
         plane.planes[i].normal = scnNode->convertWorldToLocalDirection(plane.planes[i].normal, false);
-        origin = scnNode->convertWorldToLocalPosition(origin);
-        plane.planes[i].d = origin.length();
+        origin = -scnNode->convertWorldToLocalPosition(origin);
+        plane.planes[i].d = origin.dotProduct(plane.planes[i].normal);
     }
     return pc->fetchPoint(&plane, result);
 }
