@@ -8,6 +8,8 @@
 #include"KDTree.h"
 #include"Ogre.h"
 
+class KDTree;
+
 class PointCloud
 {
 public:

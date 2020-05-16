@@ -1,7 +1,9 @@
 #ifndef KDTREE_H
 #define KDTREE_H
 
-#include"PointCloud.h"
+#include "PointCloud.h"
+
+class PointCloud;
 
 class KDTree
 {
