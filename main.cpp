@@ -1,6 +1,8 @@
 #include<iostream>
 #include<cstdlib>
 #include<string>
+#include<httplib.h>
+#include<nlohmann/json.hpp>
 #include"PointCloud.h"
 #include"OgreApplicationContext.h"
 

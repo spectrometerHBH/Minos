@@ -5,7 +5,7 @@
 		<Option title="Minos"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\OGRE\;CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\OGRE\;CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\;CMake Files\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\usr\local\lib\cmake\httplib\;CMake Files\..\..\..\..\usr\local\lib\cmake\nlohmann_json\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/spectre/CLionProjects/Minos/cmake-build-debug"/>
@@ -34,6 +34,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCPPHTTPLIB_ZLIB_SUPPORT"/>
+					<Add option="-DCPPHTTPLIB_OPENSSL_SUPPORT"/>
 					<Add directory="/usr/local/include/OGRE/Bites"/>
 					<Add directory="/usr/local/include/OGRE"/>
 					<Add directory="/usr/local/include/OGRE/Overlay"/>
@@ -61,6 +63,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCPPHTTPLIB_ZLIB_SUPPORT"/>
+					<Add option="-DCPPHTTPLIB_OPENSSL_SUPPORT"/>
 					<Add directory="/usr/local/include/OGRE/Bites"/>
 					<Add directory="/usr/local/include/OGRE"/>
 					<Add directory="/usr/local/include/OGRE/Overlay"/>
@@ -136,6 +140,21 @@
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/../../../../usr/local/lib/OGRE/cmake/OgreTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/../../../../usr/local/lib/cmake/httplib/httplibConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\httplib\"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/../../../../usr/local/lib/cmake/httplib/httplibTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\httplib\"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/../../../../usr/local/lib/cmake/nlohmann_json/nlohmann_jsonConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\nlohmann_json\"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/../../../../usr/local/lib/cmake/nlohmann_json/nlohmann_jsonConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\nlohmann_json\"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/../../../../usr/local/lib/cmake/nlohmann_json/nlohmann_jsonTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\nlohmann_json\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

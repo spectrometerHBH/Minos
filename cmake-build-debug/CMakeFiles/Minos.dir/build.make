@@ -143,6 +143,9 @@ Minos: /usr/local/lib/libOgreBites.so.1.12.6
 Minos: /usr/local/lib/libOgreRTShaderSystem.so.1.12.6
 Minos: /usr/local/lib/libOgreOverlay.so.1.12.6
 Minos: /usr/local/lib/libOgreMain.so.1.12.6
+Minos: /usr/lib/x86_64-linux-gnu/libz.so
+Minos: /usr/lib/x86_64-linux-gnu/libssl.so
+Minos: /usr/lib/x86_64-linux-gnu/libcrypto.so
 Minos: CMakeFiles/Minos.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Minos"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Minos.dir/link.txt --verbose=$(VERBOSE)

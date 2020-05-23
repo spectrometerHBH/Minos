@@ -45,7 +45,7 @@ void Render::updateData(const RenderInfNode& info)
         for(int i = num - 1; i >= 0; --i)
             mesh->destroySubMesh(i);
         
-        if(info.pos.size() > 0)
+        if(!info.pos.empty())
         {
             Ogre::SubMesh* subMesh = mesh->createSubMesh();
             subMesh->operationType = Ogre::RenderOperation::OT_POINT_LIST;
@@ -60,7 +60,7 @@ void Render::updateData(const RenderInfNode& info)
                 Ogre::HardwareBufferManager::getSingleton().createVertexBuffer(
                     offset, info.pos.size(), Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY
                 );
-            float* vertices = new float[7 * info.pos.size()];
+            auto* vertices = new float[7 * info.pos.size()];
             for(int i = 0; i < info.pos.size(); ++i)
             {
                 vertices[i + 0] = info.pos[i][0];
@@ -73,7 +73,7 @@ void Render::updateData(const RenderInfNode& info)
             }
             vbuf->writeData(0, vbuf->getSizeInBytes(), vertices, true);
             bind->setBinding(0, vbuf);
-            delete vertices;
+            delete[] vertices;
         }
         mesh->load();
     }
