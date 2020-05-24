@@ -1,14 +1,16 @@
 #include"Render.h"
+#include<iostream>
 
-Render::Render(Ogre::SceneNode* root, Ogre::Camera* camera, int width, int height) : root(root), camera(camera)
+Render::Render(Ogre::SceneManager* scnMgr, Ogre::SceneNode* root, Ogre::Camera* camera, int width, int height) : root(root), camera(camera)
 {
+    this->scnMgr = scnMgr;
     Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().createManual(
         camera->getName(), 
-         Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, 
-         Ogre::TEX_TYPE_2D, 
-         width, height, 0, 
-         Ogre::PF_R8G8B8, 
-         Ogre::TU_RENDERTARGET 
+        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, 
+        Ogre::TEX_TYPE_2D, 
+        width, height, 0, 
+        Ogre::PF_R8G8B8, 
+        Ogre::TU_RENDERTARGET 
     );
     rtt = texture->getBuffer()->getRenderTarget();
     Ogre::Viewport* v = rtt->addViewport(camera);
@@ -28,6 +30,11 @@ void Render::updateData(const RenderInfNode& info)
     {
         nodeList.insert(std::make_pair(info.id, root->createChildSceneNode()));
         Ogre::MeshPtr p = Ogre::MeshManager::getSingleton().createManual(Ogre::StringConverter::toString(info.id), Ogre::RGN_DEFAULT);
+
+        Ogre::AxisAlignedBox aabInf;
+        aabInf.setInfinite();
+        p->_setBounds(aabInf);
+
         meshList.insert(std::make_pair(info.id, p));
     }
 
@@ -40,14 +47,16 @@ void Render::updateData(const RenderInfNode& info)
 
     if(info.updateObject)
     {
+        node->detachAllObjects();
         mesh->unload();
         int num = mesh->getNumSubMeshes();
         for(int i = num - 1; i >= 0; --i)
             mesh->destroySubMesh(i);
         
-        if(!info.pos.empty())
+        if(info.pos.size() > 0)
         {
             Ogre::SubMesh* subMesh = mesh->createSubMesh();
+            subMesh->useSharedVertices = false;
             subMesh->operationType = Ogre::RenderOperation::OT_POINT_LIST;
             subMesh->vertexData = new Ogre::VertexData();
             subMesh->vertexData->vertexCount = info.pos.size();
@@ -60,22 +69,39 @@ void Render::updateData(const RenderInfNode& info)
                 Ogre::HardwareBufferManager::getSingleton().createVertexBuffer(
                     offset, info.pos.size(), Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY
                 );
-            auto* vertices = new float[7 * info.pos.size()];
+            float* vertices = new float[7 * info.pos.size()];
             for(int i = 0; i < info.pos.size(); ++i)
             {
-                vertices[i + 0] = info.pos[i][0];
-                vertices[i + 1] = info.pos[i][1];
-                vertices[i + 2] = info.pos[i][2];
-                vertices[i + 3] = info.color[i][0];
-                vertices[i + 4] = info.color[i][1];
-                vertices[i + 5] = info.color[i][3];
-                vertices[i + 6] = 1;
+                int base = i * 7;
+                vertices[base + 0] = info.pos[i][0];
+                vertices[base + 1] = info.pos[i][1];
+                vertices[base + 2] = info.pos[i][2];
+                vertices[base + 3] = info.color[i][0] / 255.0;
+                vertices[base + 4] = info.color[i][1] / 255.0;
+                vertices[base + 5] = info.color[i][2] / 255.0;
+                vertices[base + 6] = 1;
             }
             vbuf->writeData(0, vbuf->getSizeInBytes(), vertices, true);
             bind->setBinding(0, vbuf);
             delete[] vertices;
+
+            short* index = new short[info.pos.size()];
+            for(int i = 0; i < info.pos.size(); ++i)
+                index[i] = i;
+            Ogre::HardwareIndexBufferSharedPtr ibuf = Ogre::HardwareBufferManager::getSingleton().createIndexBuffer(
+                Ogre::HardwareIndexBuffer::IT_16BIT, 
+                info.pos.size(),
+                Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY
+            );
+            ibuf->writeData(0, ibuf->getSizeInBytes(), index, true);
+            subMesh->indexData->indexBuffer = ibuf;
+            subMesh->indexData->indexCount = info.pos.size();
+            subMesh->indexData->indexStart = 0;
+            delete[] index;
         }
+
         mesh->load();
+        node->attachObject(scnMgr->createEntity(mesh));
     }
 }
 
@@ -83,4 +109,8 @@ void Render::update(Ogre::PixelBox& pixelBox)
 {
     rtt->update();
     rtt->copyContentsToMemory(pixelBox);
+}
+
+Render::~Render()
+{
 }

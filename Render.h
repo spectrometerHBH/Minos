@@ -11,14 +11,16 @@ class Render
 private:
     std::map<int, Ogre::SceneNode*> nodeList;
     std::map<int, Ogre::MeshPtr> meshList;
+    Ogre::SceneManager* scnMgr;
     Ogre::SceneNode* root;
     Ogre::Camera* camera;
     Ogre::RenderTexture* rtt;
 
 public:
-    Render(Ogre::SceneNode*, Ogre::Camera*, int, int);
+    Render(Ogre::SceneManager*, Ogre::SceneNode*, Ogre::Camera*, int, int);
     void updateData(const std::vector<RenderInfNode>&);
     void update(Ogre::PixelBox&);
+    ~Render();
 
 private:
     void updateData(const RenderInfNode&);
