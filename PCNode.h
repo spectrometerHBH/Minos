@@ -19,7 +19,7 @@ public:
     void genRenderInf(const Ogre::PlaneBoundedVolume&, std::vector<RenderInfNode>&);
 
 private:
-    bool fetchPoint(const Ogre::PlaneBoundedVolume&, std::vector<int>&);
+    int fetchPoint(const Ogre::PlaneBoundedVolume&, std::shared_ptr<float> &);
 };
 
 #endif

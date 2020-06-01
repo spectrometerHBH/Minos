@@ -38,7 +38,7 @@ void PointCloud::append(const std::string& file)
     }
 }
 
-bool PointCloud::fetchPoint(const Ogre::PlaneBoundedVolume* plane, std::vector<int>& result)
+int PointCloud::fetchPoint(const Ogre::PlaneBoundedVolume* plane, std::shared_ptr<float> & result)
 {
     return kdTree->fetchPoint(plane, result);
 }

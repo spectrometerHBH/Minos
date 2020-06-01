@@ -15,6 +15,7 @@ private:
     Ogre::SceneNode* root;
     Ogre::Camera* camera;
     Ogre::RenderTexture* rtt;
+    inline static int universalIndex[800000];
 
 public:
     Render(Ogre::SceneManager*, Ogre::SceneNode*, Ogre::Camera*, int, int);

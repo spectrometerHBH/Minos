@@ -3,7 +3,7 @@
 
 PCNode::PCNode(PointCloud* pc, Ogre::SceneNode* scnNode) : pc(pc), scnNode(scnNode), id(_count++) {}
 
-bool PCNode::fetchPoint(const Ogre::PlaneBoundedVolume& _plane, std::vector<int>& result)
+int PCNode::fetchPoint(const Ogre::PlaneBoundedVolume& _plane, std::shared_ptr<float> &result)
 {
     Ogre::PlaneBoundedVolume plane = _plane;
     int len = plane.planes.size();
@@ -21,18 +21,10 @@ void PCNode::genRenderInf(const Ogre::PlaneBoundedVolume& plane, std::vector<Ren
 {
     RenderInfNode renderInfNode;
     renderInfNode.id = id;
-    std::vector<int> indexList;
-    renderInfNode.updateObject = fetchPoint(plane, indexList);
-    int len = indexList.size();
-
-    if(renderInfNode.updateObject)
-    {
-        for(int i = 0; i < len; ++i)
-        {
-            renderInfNode.pos.push_back(pc->pos[indexList[i]]);
-            renderInfNode.color.push_back(pc->color[indexList[i]]);
-        }
-    }
+    std::shared_ptr<float> data;
+    renderInfNode.size = fetchPoint(plane, data);
+    renderInfNode.updateObject = renderInfNode.size != -1;
+    renderInfNode.data = data;
     renderInfNode.nodePos = scnNode->convertLocalToWorldPosition(Ogre::Vector3(0, 0, 0));
     renderInfNode.nodeScale = scnNode->getScale();
     renderInfNode.orientation = scnNode->getOrientation();
