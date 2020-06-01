@@ -34,11 +34,12 @@ int main(int argc, char **argv)
       render_inf_node.fromBuffer(buffer);
       std::cout << len << std::endl;
       std::cout << render_inf_node.id << std::endl;
+      std::cout << render_inf_node.size << std::endl;
       std::cout << render_inf_node.updateObject << std::endl;
       std::cout << render_inf_node.nodePos << std::endl;
       std::cout << render_inf_node.nodeScale << std::endl;
-      std::cout << render_inf_node.pos.size() << std::endl;
-      for (int i = 0; i < render_inf_node.pos.size(); ++i) std::cout << render_inf_node.pos[i] << " " << render_inf_node.color[i] << std::endl;
+      std::cout << render_inf_node.size << std::endl;
+      for (int i = 0; i < render_inf_node.size; ++i) std::cout << render_inf_node.data.get()[i] << std::endl;
       TotalRecvSize += len;
       total_packet_num++;
       return len;

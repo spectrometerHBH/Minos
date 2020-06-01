@@ -21,13 +21,14 @@ int main(int argc, char **argv)
 
   RenderInfNode render_inf_node;
   render_inf_node.id = 2;
+  render_inf_node.size = 2;
+  float *data = new float[2];
+  render_inf_node.data.reset(data);
+  render_inf_node.data.get()[0] = 12.0;
+  render_inf_node.data.get()[1] = 13.0;
   render_inf_node.updateObject = true;
   render_inf_node.nodePos = Ogre::Vector3(0.2, 0.3, 0.4);
   render_inf_node.nodeScale = Ogre::Vector3(1, 1, 2);
-  render_inf_node.pos.emplace_back(3, 3, 3);
-  render_inf_node.color.emplace_back(4, 5, 6);
-  render_inf_node.pos.emplace_back(123, 123, 123);
-  render_inf_node.color.emplace_back(4444, 555, 666);
 
   char* buffer = new char[200000], *start = buffer;
   buffer = render_inf_node.toBuffer(buffer);
