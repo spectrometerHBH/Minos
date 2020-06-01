@@ -3,6 +3,9 @@
 
 Render::Render(Ogre::SceneManager* scnMgr, Ogre::SceneNode* root, Ogre::Camera* camera, int width, int height) : root(root), camera(camera)
 {
+    int size = sizeof(universalIndex) / sizeof(universalIndex[0]);
+    for(int i = 0; i < size; ++i)
+        universalIndex[i] = i;
     this->scnMgr = scnMgr;
     Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().createManual(
         camera->getName(), 
@@ -45,7 +48,7 @@ void Render::updateData(const RenderInfNode& info)
     node->setPosition(info.nodePos);
     node->setOrientation(info.orientation);
 
-    if(info.updateObject)
+    if(info.updateObject && info.data != NULL)
     {
         node->detachAllObjects();
         mesh->unload();
@@ -53,13 +56,15 @@ void Render::updateData(const RenderInfNode& info)
         for(int i = num - 1; i >= 0; --i)
             mesh->destroySubMesh(i);
         
-        if(info.pos.size() > 0)
+        int size = info.size;
+        std::cout << size << std::endl;
+        if(sizeof(info.data) > 0)
         {
             Ogre::SubMesh* subMesh = mesh->createSubMesh();
             subMesh->useSharedVertices = false;
             subMesh->operationType = Ogre::RenderOperation::OT_POINT_LIST;
             subMesh->vertexData = new Ogre::VertexData();
-            subMesh->vertexData->vertexCount = info.pos.size();
+            subMesh->vertexData->vertexCount = size;
             Ogre::VertexDeclaration* decl = subMesh->vertexData->vertexDeclaration;
             Ogre::VertexBufferBinding* bind = subMesh->vertexData->vertexBufferBinding;
             size_t offset = 0;
@@ -67,37 +72,20 @@ void Render::updateData(const RenderInfNode& info)
             offset += decl->addElement(0, offset, Ogre::VET_FLOAT4, Ogre::VES_DIFFUSE).getSize();
             Ogre::HardwareVertexBufferSharedPtr vbuf =
                 Ogre::HardwareBufferManager::getSingleton().createVertexBuffer(
-                    offset, info.pos.size(), Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY
+                    offset, size, Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY
                 );
-            float* vertices = new float[7 * info.pos.size()];
-            for(int i = 0; i < info.pos.size(); ++i)
-            {
-                int base = i * 7;
-                vertices[base + 0] = info.pos[i][0];
-                vertices[base + 1] = info.pos[i][1];
-                vertices[base + 2] = info.pos[i][2];
-                vertices[base + 3] = info.color[i][0] / 255.0;
-                vertices[base + 4] = info.color[i][1] / 255.0;
-                vertices[base + 5] = info.color[i][2] / 255.0;
-                vertices[base + 6] = 1;
-            }
-            vbuf->writeData(0, vbuf->getSizeInBytes(), vertices, true);
+            vbuf->writeData(0, vbuf->getSizeInBytes(), info.data.get(), true);
             bind->setBinding(0, vbuf);
-            delete[] vertices;
 
-            int* index = new int[info.pos.size()];
-            for(int i = 0; i < info.pos.size(); ++i)
-                index[i] = i;
             Ogre::HardwareIndexBufferSharedPtr ibuf = Ogre::HardwareBufferManager::getSingleton().createIndexBuffer(
                 Ogre::HardwareIndexBuffer::IT_32BIT,
-                info.pos.size(),
+                size,
                 Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY
             );
-            ibuf->writeData(0, ibuf->getSizeInBytes(), index, true);
+            ibuf->writeData(0, ibuf->getSizeInBytes(), universalIndex, true);
             subMesh->indexData->indexBuffer = ibuf;
-            subMesh->indexData->indexCount = info.pos.size();
+            subMesh->indexData->indexCount = size;
             subMesh->indexData->indexStart = 0;
-            delete[] index;
         }
 
         mesh->load();

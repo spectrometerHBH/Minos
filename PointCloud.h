@@ -22,7 +22,7 @@ public:
     PointCloud(const std::string&);
     ~PointCloud();
 
-    bool fetchPoint(const Ogre::PlaneBoundedVolume*, std::vector<int>&);
+    int fetchPoint(const Ogre::PlaneBoundedVolume*, std::shared_ptr<float> &);
 
 private:
     void append(const std::string&);

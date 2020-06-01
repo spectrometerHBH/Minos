@@ -8,8 +8,9 @@ class RenderInfNode
 {
 public:
     int id;
+    int size;
     bool updateObject;
-    std::vector<Ogre::Vector3> pos, color;
+    std::shared_ptr<float> data = NULL;
     Ogre::Vector3 nodePos, nodeScale;
     Ogre::Quaternion orientation;
 };

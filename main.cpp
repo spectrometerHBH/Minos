@@ -12,9 +12,6 @@
 #include"OgreOverlayContainer.h"
 #include"OgreRectangle2D.h"
 #include"Ogre.h"
-#include <brynet/net/EventLoop.hpp>
-#include <brynet/net/TcpService.hpp>
-#include <brynet/net/wrapper/ServiceBuilder.hpp>
 
 class Test : public OgreBites::ApplicationContext
 {
@@ -48,8 +45,8 @@ void Test::setup()
 
     Ogre::RenderWindow* renderWindow = getRenderWindow();
     scnMgr->setAmbientLight(Ogre::ColourValue());
-    PointCloud pc0("/home/spectre/CLionProjects/Minos/Pasha_guard_head400K.txt");
-    PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
+    PointCloud pc0("Pasha_guard_head400K.txt");
+    PointCloud pc1("Centurion_helmet400K.txt");
 
     Ogre::SceneNode* node0 = scnMgr->getRootSceneNode()->createChildSceneNode();
     Ogre::SceneNode* node1 = scnMgr->getRootSceneNode()->createChildSceneNode();
@@ -76,7 +73,6 @@ void Test::setup()
 
     std::vector<RenderInfNode> renderList;
     pcnode0->genRenderInf(camera->getPlaneBoundedVolume(), renderList);
-    std::cout << renderList[0].pos.size() << std::endl;
 
     Ogre::SceneNode* renderSNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     Render render(scnMgr, renderSNode, camera, width, height);
