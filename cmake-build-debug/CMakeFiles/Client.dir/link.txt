@@ -1,1 +1,1 @@
-/usr/bin/c++  -pthread -g   CMakeFiles/Client.dir/client.cpp.o  -o Client 
+/usr/bin/c++  -pthread -g   CMakeFiles/Client.dir/client.cpp.o CMakeFiles/Client.dir/RenderInf.cpp.o  -o Client -Wl,-rpath,/usr/local/lib /usr/local/lib/libOgreBites.so.1.12.6 /usr/local/lib/libOgreOverlay.so.1.12.6 /usr/local/lib/libOgreRTShaderSystem.so.1.12.6 /usr/local/lib/libOgreMain.so.1.12.6 -lpthread 

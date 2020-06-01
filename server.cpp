@@ -1,6 +1,7 @@
 #include <iostream>
 #include <mutex>
 #include <atomic>
+#include "RenderInf.h"
 
 #include <brynet/net/EventLoop.hpp>
 #include <brynet/net/TcpService.hpp>
@@ -15,20 +16,29 @@ std::atomic_llong total_packet_num = ATOMIC_VAR_INIT(0);
 
 int main(int argc, char **argv)
 {
-  if (argc != 3)
+  if (argc != 2)
   {
-    fprintf(stderr, "Usage: <listen port> <net work thread num>\n");
+    fprintf(stderr, "Usage: <listen port>\n");
     exit(-1);
   }
 
   auto service = TcpService::Create();
-  service->startWorkerThread(atoi(argv[2]));
+  service->startWorkerThread(1);
+
 
   auto enterCallback = [](const TcpConnection::Ptr& session) {
     total_client_num++;
 
     session->setDataCallback([session](const char* buffer, size_t len) {
-      session->send(buffer, len);
+      RenderInfNode render_inf_node;
+      render_inf_node.fromBuffer(buffer);
+      std::cout << len << std::endl;
+      std::cout << render_inf_node.id << std::endl;
+      std::cout << render_inf_node.updateObject << std::endl;
+      std::cout << render_inf_node.nodePos << std::endl;
+      std::cout << render_inf_node.nodeScale << std::endl;
+      std::cout << render_inf_node.pos.size() << std::endl;
+      for (int i = 0; i < render_inf_node.pos.size(); ++i) std::cout << render_inf_node.pos[i] << " " << render_inf_node.color[i] << std::endl;
       TotalRecvSize += len;
       total_packet_num++;
       return len;

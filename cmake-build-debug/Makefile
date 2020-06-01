@@ -257,6 +257,39 @@ Render.cpp.s:
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Render.cpp.s
 .PHONY : Render.cpp.s
 
+RenderInf.o: RenderInf.cpp.o
+
+.PHONY : RenderInf.o
+
+# target to build an object file
+RenderInf.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/RenderInf.cpp.o
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/RenderInf.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/RenderInf.cpp.o
+.PHONY : RenderInf.cpp.o
+
+RenderInf.i: RenderInf.cpp.i
+
+.PHONY : RenderInf.i
+
+# target to preprocess a source file
+RenderInf.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/RenderInf.cpp.i
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/RenderInf.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/RenderInf.cpp.i
+.PHONY : RenderInf.cpp.i
+
+RenderInf.s: RenderInf.cpp.s
+
+.PHONY : RenderInf.s
+
+# target to generate assembly for a file
+RenderInf.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/RenderInf.cpp.s
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/RenderInf.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/RenderInf.cpp.s
+.PHONY : RenderInf.cpp.s
+
 client.o: client.cpp.o
 
 .PHONY : client.o
@@ -361,6 +394,9 @@ help:
 	@echo "... Render.o"
 	@echo "... Render.i"
 	@echo "... Render.s"
+	@echo "... RenderInf.o"
+	@echo "... RenderInf.i"
+	@echo "... RenderInf.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"

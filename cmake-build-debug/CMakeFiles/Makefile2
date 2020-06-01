@@ -78,12 +78,12 @@ preinstall:
 CMakeFiles/Client.dir/all:
 	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/depend
 	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Client"
 .PHONY : CMakeFiles/Client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Client.dir/rule
@@ -105,12 +105,12 @@ CMakeFiles/Client.dir/clean:
 CMakeFiles/Minos.dir/all:
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/depend
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target Minos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=4,5,6,7,8,9,10 "Built target Minos"
 .PHONY : CMakeFiles/Minos.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Minos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Minos.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Minos.dir/rule
@@ -132,12 +132,12 @@ CMakeFiles/Minos.dir/clean:
 CMakeFiles/Server.dir/all:
 	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/depend
 	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target Server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=11,12,13 "Built target Server"
 .PHONY : CMakeFiles/Server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Server.dir/rule

@@ -4,12 +4,17 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/spectre/CLionProjects/Minos/RenderInf.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Client.dir/RenderInf.cpp.o"
   "/home/spectre/CLionProjects/Minos/client.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Client.dir/client.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/local/include/OGRE/Bites"
+  "/usr/local/include/OGRE"
+  "/usr/local/include/OGRE/Overlay"
+  "/usr/local/include/OGRE/RTShaderSystem"
   )
 
 # Targets to which this target links.

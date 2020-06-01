@@ -6,5 +6,5 @@ CXX_FLAGS = -pthread -g   -std=gnu++1z
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -isystem /usr/local/include/OGRE/Bites -isystem /usr/local/include/OGRE -isystem /usr/local/include/OGRE/Overlay -isystem /usr/local/include/OGRE/RTShaderSystem 
 
