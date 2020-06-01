@@ -85,11 +85,11 @@ void Render::updateData(const RenderInfNode& info)
             bind->setBinding(0, vbuf);
             delete[] vertices;
 
-            short* index = new short[info.pos.size()];
+            int* index = new int[info.pos.size()];
             for(int i = 0; i < info.pos.size(); ++i)
                 index[i] = i;
             Ogre::HardwareIndexBufferSharedPtr ibuf = Ogre::HardwareBufferManager::getSingleton().createIndexBuffer(
-                Ogre::HardwareIndexBuffer::IT_16BIT, 
+                Ogre::HardwareIndexBuffer::IT_32BIT,
                 info.pos.size(),
                 Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY
             );

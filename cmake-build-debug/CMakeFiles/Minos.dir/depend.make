@@ -708,7 +708,10 @@ CMakeFiles/Minos.dir/Render.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadH
 CMakeFiles/Minos.dir/Render.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadHeadersTBB.h
 
 CMakeFiles/Minos.dir/main.cpp.o: ../KDTree.h
+CMakeFiles/Minos.dir/main.cpp.o: ../PCNode.h
 CMakeFiles/Minos.dir/main.cpp.o: ../PointCloud.h
+CMakeFiles/Minos.dir/main.cpp.o: ../Render.h
+CMakeFiles/Minos.dir/main.cpp.o: ../RenderInf.h
 CMakeFiles/Minos.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Bites/OgreApplicationContext.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Bites/OgreApplicationContextBase.h
@@ -819,6 +822,7 @@ CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreProfiler.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreQuaternion.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreRadixSort.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreRay.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreRectangle2D.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreRenderObjectListener.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreRenderOperation.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreRenderQueue.h
@@ -881,6 +885,14 @@ CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignmen
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreViewport.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreOverlay.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreOverlayContainer.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreOverlayElement.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreOverlayManager.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreOverlayPrerequisites.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreOverlayProfileSessionListener.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreOverlaySystem.h
+CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreUTFString.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/RTShaderSystem/OgreRTShaderConfig.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/RTShaderSystem/OgreRTShaderExports.h
 CMakeFiles/Minos.dir/main.cpp.o: /usr/local/include/OGRE/RTShaderSystem/OgreRTShaderSystem.h

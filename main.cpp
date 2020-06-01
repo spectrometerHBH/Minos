@@ -43,13 +43,11 @@ void Test::setup()
     shadergen = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
     shadergen->addSceneManager(scnMgr);
 
-    Ogre::RenderWindow* renderWid = getRenderWindow();
+    Ogre::RenderWindow* renderWindow = getRenderWindow();
     scnMgr->setAmbientLight(Ogre::ColourValue());
-//    scnMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
-    PointCloud pc0("Pasha_guard_head400K.txt");
-//    PointCloud pc0("test.txt");
-    PointCloud pc1("Centurion_helmet400K.txt");
-    
+    PointCloud pc0("/home/spectre/CLionProjects/Minos/Pasha_guard_head400K.txt");
+    PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
+
     Ogre::SceneNode* node0 = scnMgr->getRootSceneNode()->createChildSceneNode();
     Ogre::SceneNode* node1 = scnMgr->getRootSceneNode()->createChildSceneNode();
     node0->setScale(0.1, 0.1, 0.1);
@@ -59,10 +57,11 @@ void Test::setup()
     nodeList.push_back(pcnode0);
     nodeList.push_back(pcnode1);
     node0->setPosition(0, 0, -30);
+    node0->rotate(Ogre::Vector3(-1, 0, 0), Ogre::Radian(Ogre::Degree(90)));
     node1->setPosition(0, 0, 100);
 
     Ogre::Camera* camera = scnMgr->createCamera("camera");
-    Ogre::Viewport* vp = renderWid->addViewport(camera);
+    Ogre::Viewport* vp = renderWindow->addViewport(camera);
     camera->setNearClipDistance(5);
     Ogre::SceneNode* camNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     camNode->attachObject(camera);
@@ -74,6 +73,7 @@ void Test::setup()
 
     std::vector<RenderInfNode> renderList;
     pcnode0->genRenderInf(camera->getPlaneBoundedVolume(), renderList);
+    std::cout << renderList[0].pos.size() << std::endl;
 
     Ogre::SceneNode* renderSNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     Render render(scnMgr, renderSNode, camera, width, height);
@@ -118,7 +118,6 @@ int main()
 {
     Test test;
     test.initApp();
-//    test.test();
     test.getRoot()->startRendering();
     test.closeApp();
     return 0;

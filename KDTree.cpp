@@ -84,6 +84,7 @@ bool KDTree::fetchPoint(const Ogre::PlaneBoundedVolume* plane, std::vector<int>&
     }
     return false;
 }
+
 int KDTree::fetchPoint(Node* now, const Ogre::PlaneBoundedVolume* plane, std::vector<int>& result, bool update)
 {
     int len = plane->planes.size();
@@ -122,7 +123,7 @@ int KDTree::fetchPoint(Node* now, const Ogre::PlaneBoundedVolume* plane, std::ve
     if(flag && update)
     {
         ++cnt;
-//        if(std::rand() % 8 == 0)
+        // if(std::rand() % 8 == 0)
             result.push_back(now->index);
     }
 
@@ -135,6 +136,7 @@ int KDTree::fetchPoint(Node* now, const Ogre::PlaneBoundedVolume* plane, std::ve
 
     return cnt;
 }
+
 /*
 int KDTree::fetchPoint(Node* now, const Ogre::PlaneBoundedVolume* plane, std::vector<int>& result, bool update)
 {
