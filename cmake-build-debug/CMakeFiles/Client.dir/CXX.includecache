@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/spectre/CLionProjects/Minos/client.cpp
+iostream
+-
+string
+-
+brynet/net/SocketLibFunction.hpp
+-
+brynet/net/TcpService.hpp
+-
+brynet/net/AsyncConnector.hpp
+-
+brynet/net/wrapper/ConnectionBuilder.hpp
+-
+

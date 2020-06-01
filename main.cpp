@@ -12,6 +12,9 @@
 #include"OgreOverlayContainer.h"
 #include"OgreRectangle2D.h"
 #include"Ogre.h"
+#include <brynet/net/EventLoop.hpp>
+#include <brynet/net/TcpService.hpp>
+#include <brynet/net/wrapper/ServiceBuilder.hpp>
 
 class Test : public OgreBites::ApplicationContext
 {

@@ -1,3 +1,5 @@
 /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir
+/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Client.dir
 /home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir
+/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir

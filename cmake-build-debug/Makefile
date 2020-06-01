@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Client
+
+# Build rule for target.
+Client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Client
+.PHONY : Client
+
+# fast build rule for target.
+Client/fast:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/build
+.PHONY : Client/fast
+
+#=============================================================================
 # Target rules for targets named Minos
 
 # Build rule for target.
@@ -122,6 +135,19 @@ Minos: cmake_check_build_system
 Minos/fast:
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/build
 .PHONY : Minos/fast
+
+#=============================================================================
+# Target rules for targets named Server
+
+# Build rule for target.
+Server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Server
+.PHONY : Server
+
+# fast build rule for target.
+Server/fast:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
+.PHONY : Server/fast
 
 KDTree.o: KDTree.cpp.o
 
@@ -231,6 +257,33 @@ Render.cpp.s:
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Render.cpp.s
 .PHONY : Render.cpp.s
 
+client.o: client.cpp.o
+
+.PHONY : client.o
+
+# target to build an object file
+client.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/client.cpp.o
+.PHONY : client.cpp.o
+
+client.i: client.cpp.i
+
+.PHONY : client.i
+
+# target to preprocess a source file
+client.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/client.cpp.i
+.PHONY : client.cpp.i
+
+client.s: client.cpp.s
+
+.PHONY : client.s
+
+# target to generate assembly for a file
+client.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/client.cpp.s
+.PHONY : client.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -258,6 +311,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+server.o: server.cpp.o
+
+.PHONY : server.o
+
+# target to build an object file
+server.cpp.o:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/server.cpp.o
+.PHONY : server.cpp.o
+
+server.i: server.cpp.i
+
+.PHONY : server.i
+
+# target to preprocess a source file
+server.cpp.i:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/server.cpp.i
+.PHONY : server.cpp.i
+
+server.s: server.cpp.s
+
+.PHONY : server.s
+
+# target to generate assembly for a file
+server.cpp.s:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/server.cpp.s
+.PHONY : server.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -265,8 +345,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... Minos"
+	@echo "... Client"
 	@echo "... edit_cache"
+	@echo "... Minos"
+	@echo "... Server"
 	@echo "... KDTree.o"
 	@echo "... KDTree.i"
 	@echo "... KDTree.s"
@@ -279,9 +361,15 @@ help:
 	@echo "... Render.o"
 	@echo "... Render.i"
 	@echo "... Render.s"
+	@echo "... client.o"
+	@echo "... client.i"
+	@echo "... client.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... server.o"
+	@echo "... server.i"
+	@echo "... server.s"
 .PHONY : help
 
 
