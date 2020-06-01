@@ -129,7 +129,7 @@ int KDTree::fetchPoint(Node* now, const Ogre::PlaneBoundedVolume* plane, std::sh
         {
             now->last = now->size;
             memcpy(result.get() + offset, data + now->left * 7, now->size * 7 * sizeof(float));
-            offset += now->size * 7 * sizeof(float);
+            offset += now->size * 7;
         }
         else
         {
