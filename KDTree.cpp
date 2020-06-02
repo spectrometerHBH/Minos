@@ -89,7 +89,10 @@ bool KDTree::cmp(int l, int r)
 int KDTree::fetchPoint(const Ogre::PlaneBoundedVolume* plane, std::shared_ptr<float> &result)
 {
     result = NULL;
-    updateModel = false;
+
+//    updateModel = false;
+    updateModel = true;
+
     int offset = 0;
     int size = fetchPoint(root, plane, result, false, offset);
     if(updateModel)

@@ -1,13 +1,20 @@
 #include"Render.h"
 #include<iostream>
 
-Render::Render(Ogre::SceneManager* scnMgr, Ogre::SceneNode* root, Ogre::Camera* camera, int width, int height) : root(root), camera(camera)
+Render::Render(Ogre::SceneManager* scnMgr, Ogre::SceneNode* root) : root(root), scnMgr(scnMgr)
 {
     int size = sizeof(universalIndex) / sizeof(universalIndex[0]);
     for(int i = 0; i < size; ++i)
         universalIndex[i] = i;
-    this->scnMgr = scnMgr;
-    Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().createManual(
+}
+
+void Render::updateCamera(Ogre::Camera* camera, int width, int height, Ogre::Matrix4 projMatrix)
+{
+    if(texture.getPointer() != NULL)
+        Ogre::TextureManager::getSingleton().remove(texture);
+
+    this->camera = camera;
+    texture = Ogre::TextureManager::getSingleton().createManual(
         camera->getName(), 
         Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, 
         Ogre::TEX_TYPE_2D, 
@@ -18,6 +25,8 @@ Render::Render(Ogre::SceneManager* scnMgr, Ogre::SceneNode* root, Ogre::Camera* 
     rtt = texture->getBuffer()->getRenderTarget();
     Ogre::Viewport* v = rtt->addViewport(camera);
     v->setBackgroundColour(Ogre::ColourValue::Black);
+
+    camera->setCustomProjectionMatrix(true, projMatrix);
 }
 
 void Render::updateData(const std::vector<RenderInfNode>& list)
@@ -93,7 +102,7 @@ void Render::updateData(const RenderInfNode& info)
     }
 }
 
-void Render::update(Ogre::PixelBox& pixelBox)
+void Render::update(const Ogre::PixelBox& pixelBox)
 {
     rtt->update();
     rtt->copyContentsToMemory(pixelBox);

@@ -4,6 +4,7 @@
 #include<vector>
 #include"PointCloud.h"
 #include"PCNode.h"
+#include"Splitter.h"
 #include"OgreApplicationContext.h"
 #include"Render.h"
 #include"OgreOverlay.h"
@@ -63,6 +64,16 @@ void Test::setup()
     Ogre::Camera* camera = scnMgr->createCamera("camera");
     Ogre::Viewport* vp = renderWindow->addViewport(camera);
     camera->setNearClipDistance(5);
+/*
+    std::cout << camera->getProjectionMatrix() << std::endl;
+    Ogre::Matrix4 proj = camera->getProjectionMatrix();
+    for(int i = 0; i < 8; ++i)
+        std::cout << camera->getWorldSpaceCorners()[i] << std::endl;
+    proj[0][0] = proj[0][0] * 2;
+    proj[0][2] = -1;
+    camera->setCustomProjectionMatrix(true, proj);
+    std::cout << camera->getProjectionMatrix() << std::endl;
+*/
     Ogre::SceneNode* camNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     camNode->attachObject(camera);
     camNode->setPosition(0, 0, 50);
@@ -72,13 +83,31 @@ void Test::setup()
     int width = vp->getActualWidth();
 
     std::vector<RenderInfNode> renderList;
-    pcnode0->genRenderInf(camera->getPlaneBoundedVolume(), renderList);
+
+    Splitter splitter(camera, vp);
+    splitter.split(2);
 
     Ogre::SceneNode* renderSNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-    Render render(scnMgr, renderSNode, camera, width, height);
-    render.updateData(renderList);
+    Render render(scnMgr, renderSNode);
+
+    for(int i = 0; i < 2; ++i)
+    {
+        pcnode0->genRenderInf(splitter.getCombiner(i)->PBV, renderList);
+        render.updateData(renderList);
+
+        render.updateCamera(
+            camera, 
+            splitter.getCombiner(i)->width,
+            splitter.getCombiner(i)->height,
+            splitter.getCombiner(i)->projMatrix
+        );
+        render.update(splitter.getCombiner(i)->pb);
+
+        renderList.clear();
+    }
+
     Ogre::PixelBox pb(width, height, 1, Ogre::PF_R8G8B8, new char[3 * width * height]);
-    render.update(pb);
+    splitter.combine(pb);
 
     Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().createManual(
         "Tex", 

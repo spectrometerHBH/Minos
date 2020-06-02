@@ -13,9 +13,6 @@ public:
     std::shared_ptr<float> data = NULL;
     Ogre::Vector3 nodePos, nodeScale;
     Ogre::Quaternion orientation;
-
-    char* toBuffer(char* buffer);
-    void fromBuffer(const char* buffer);
 };
 
 #endif
