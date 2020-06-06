@@ -6,14 +6,26 @@
 
 #IncludeRegexTransform: 
 
-/home/spectre/CLionProjects/Minos/RenderInf.cpp
-RenderInf.h
-/home/spectre/CLionProjects/Minos/RenderInf.h
-
 /home/spectre/CLionProjects/Minos/RenderInf.h
 Ogre.h
 /home/spectre/CLionProjects/Minos/Ogre.h
 vector
+-
+
+/home/spectre/CLionProjects/Minos/server.cpp
+iostream
+-
+mutex
+-
+atomic
+-
+RenderInf.h
+/home/spectre/CLionProjects/Minos/RenderInf.h
+brynet/net/EventLoop.hpp
+-
+brynet/net/TcpService.hpp
+-
+brynet/net/wrapper/ServiceBuilder.hpp
 -
 
 /usr/local/include/OGRE/Ogre.h

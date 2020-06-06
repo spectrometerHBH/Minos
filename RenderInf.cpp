@@ -1,31 +1,46 @@
 #include "RenderInf.h"
 
 template<typename T>
-char* serialize(char* buffer, T value) {
+char* RenderInfNode::serialize(char* buffer, T value) {
   memcpy(buffer, &value, sizeof(T));
   return buffer + sizeof(T);
 }
 
-char* serialize(char* buffer, Ogre::Vector3 value) {
+char* RenderInfNode::serialize(char* buffer, Ogre::Vector3 value) {
   buffer = serialize(buffer, value.x);
   buffer = serialize(buffer, value.y);
   buffer = serialize(buffer, value.z);
   return buffer;
 }
 
+char* RenderInfNode::serialize(char* buffer, Ogre::Quaternion value) {
+  buffer = serialize(buffer, value.w);
+  buffer = serialize(buffer, value.x);
+  buffer = serialize(buffer, value.y);
+  buffer = serialize(buffer, value.z);
+  return buffer;
+}
+
+char* RenderInfNode::serialize(char* buffer, Ogre::Matrix4 value) {
+  for (size_t i = 0; i < 4; ++i)
+    for (size_t j = 0; j < 4; ++j)
+      buffer = serialize(buffer, value[i][j]);
+  return buffer;
+}
+
 template<typename T>
-char* serializeArray(char* buffer, std::shared_ptr<T> array, int len) {
+char* RenderInfNode::serializeArray(char* buffer, std::shared_ptr<T> array, int len) {
   memcpy(buffer, array.get(), len * sizeof(T));
   return buffer + len * sizeof(T);
 }
 
 template<typename T>
-const char* deserialize(const char* buffer, T& value) {
+const char* RenderInfNode::deserialize(const char* buffer, T& value) {
   memcpy(&value, buffer, sizeof(T));
   return const_cast<char*>(buffer + sizeof(T));
 }
 
-const char* deserialize(const char* buffer, Ogre::Vector3& value) {
+const char* RenderInfNode::deserialize(const char* buffer, Ogre::Vector3& value) {
   buffer = deserialize(buffer, value.x);
   buffer = deserialize(buffer, value.y);
   buffer = deserialize(buffer, value.z);
@@ -33,12 +48,12 @@ const char* deserialize(const char* buffer, Ogre::Vector3& value) {
 }
 
 template<typename T>
-const char* deserializeArray(const char* buffer, std::shared_ptr<T> array, int len) {
+const char* RenderInfNode::deserializeArray(const char* buffer, std::shared_ptr<T> array, int len) {
   memcpy(array.get(), buffer, len * sizeof(T));
   return buffer + len * sizeof(T);
 }
 
-char* RenderInfNode::toBuffer(char *buffer) {
+char* RenderInfNode::toBuffer(char *buffer) const {
   buffer = serialize(buffer, id);
   buffer = serialize(buffer, (int)updateObject);
   buffer = serialize(buffer, size);

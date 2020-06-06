@@ -25,42 +25,31 @@ int main(int argc, char **argv)
   auto service = TcpService::Create();
   service->startWorkerThread(1);
 
-
   auto enterCallback = [](const TcpConnection::Ptr& session) {
     total_client_num++;
 
     session->setDataCallback([session](const char* buffer, size_t len) {
-      RenderInfNode render_inf_node;
-      render_inf_node.fromBuffer(buffer);
-      std::cout << len << std::endl;
-      std::cout << render_inf_node.id << std::endl;
-      std::cout << render_inf_node.size << std::endl;
-      std::cout << render_inf_node.updateObject << std::endl;
-      std::cout << render_inf_node.nodePos << std::endl;
-      std::cout << render_inf_node.nodeScale << std::endl;
-      std::cout << render_inf_node.size << std::endl;
-      for (int i = 0; i < render_inf_node.size; ++i) std::cout << render_inf_node.data.get()[i] << std::endl;
-      TotalRecvSize += len;
-      total_packet_num++;
+      int command;
+      RenderInfNode::deserialize(buffer, command);
+      std::cout << command << " " << len << std::endl;
       return len;
     });
 
     session->setDisConnectCallback([](const TcpConnection::Ptr& session) {
       total_client_num--;
+      std::cout << "client num: " << total_client_num << std::endl;
     });
   };
 
   wrapper::ListenerBuilder listener;
   listener.configureService(service)
       .configureSocketOptions({
-                                  [](TcpSocket& socket) {
-                                    socket.setNodelay();
-                                  }
-                              })
+        [](TcpSocket& socket) { socket.setNodelay(); }
+      })
       .configureConnectionOptions({
-                                      brynet::net::AddSocketOption::WithMaxRecvBufferSize(1024 * 1024),
-                                      brynet::net::AddSocketOption::AddEnterCallback(enterCallback)
-                                  })
+        brynet::net::AddSocketOption::WithMaxRecvBufferSize(1024 * 1024),
+        brynet::net::AddSocketOption::AddEnterCallback(enterCallback)
+      })
       .configureListen([=](wrapper::BuildListenConfig config) {
         config.setAddr(false, "0.0.0.0", atoi(argv[1]));
       })
@@ -70,21 +59,5 @@ int main(int argc, char **argv)
   while (true)
   {
     mainLoop.loop(1000);
-    if (TotalRecvSize / 1024 == 0)
-    {
-      std::cout << "total recv : " << TotalRecvSize << " bytes/s, of client num:" << total_client_num << std::endl;
-    }
-    else if ((TotalRecvSize / 1024) / 1024 == 0)
-    {
-      std::cout << "total recv : " << TotalRecvSize / 1024 << " K/s, of client num:" << total_client_num << std::endl;
-    }
-    else
-    {
-      std::cout << "total recv : " << (TotalRecvSize / 1024) / 1024 << " M/s, of client num:" << total_client_num << std::endl;
-    }
-
-    std::cout << "packet num:" << total_packet_num << std::endl;
-    total_packet_num = 0;
-    TotalRecvSize = 0;
   }
 }

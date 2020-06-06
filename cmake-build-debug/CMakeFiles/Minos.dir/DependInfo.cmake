@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/spectre/CLionProjects/Minos/PointCloud.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir/PointCloud.cpp.o"
   "/home/spectre/CLionProjects/Minos/Render.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir/Render.cpp.o"
   "/home/spectre/CLionProjects/Minos/RenderInf.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir/RenderInf.cpp.o"
+  "/home/spectre/CLionProjects/Minos/RenderRemoteCaller.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir/RenderRemoteCaller.cpp.o"
+  "/home/spectre/CLionProjects/Minos/Splitter.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir/Splitter.cpp.o"
   "/home/spectre/CLionProjects/Minos/main.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Minos.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

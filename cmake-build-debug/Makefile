@@ -155,7 +155,9 @@ KDTree.o: KDTree.cpp.o
 
 # target to build an object file
 KDTree.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/KDTree.cpp.o
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/KDTree.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/KDTree.cpp.o
 .PHONY : KDTree.cpp.o
 
 KDTree.i: KDTree.cpp.i
@@ -164,7 +166,9 @@ KDTree.i: KDTree.cpp.i
 
 # target to preprocess a source file
 KDTree.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/KDTree.cpp.i
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/KDTree.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/KDTree.cpp.i
 .PHONY : KDTree.cpp.i
 
 KDTree.s: KDTree.cpp.s
@@ -173,7 +177,9 @@ KDTree.s: KDTree.cpp.s
 
 # target to generate assembly for a file
 KDTree.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/KDTree.cpp.s
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/KDTree.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/KDTree.cpp.s
 .PHONY : KDTree.cpp.s
 
 PCNode.o: PCNode.cpp.o
@@ -182,7 +188,9 @@ PCNode.o: PCNode.cpp.o
 
 # target to build an object file
 PCNode.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/PCNode.cpp.o
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/PCNode.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/PCNode.cpp.o
 .PHONY : PCNode.cpp.o
 
 PCNode.i: PCNode.cpp.i
@@ -191,7 +199,9 @@ PCNode.i: PCNode.cpp.i
 
 # target to preprocess a source file
 PCNode.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/PCNode.cpp.i
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/PCNode.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/PCNode.cpp.i
 .PHONY : PCNode.cpp.i
 
 PCNode.s: PCNode.cpp.s
@@ -200,7 +210,9 @@ PCNode.s: PCNode.cpp.s
 
 # target to generate assembly for a file
 PCNode.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/PCNode.cpp.s
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/PCNode.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/PCNode.cpp.s
 .PHONY : PCNode.cpp.s
 
 PointCloud.o: PointCloud.cpp.o
@@ -209,7 +221,9 @@ PointCloud.o: PointCloud.cpp.o
 
 # target to build an object file
 PointCloud.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/PointCloud.cpp.o
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/PointCloud.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/PointCloud.cpp.o
 .PHONY : PointCloud.cpp.o
 
 PointCloud.i: PointCloud.cpp.i
@@ -218,7 +232,9 @@ PointCloud.i: PointCloud.cpp.i
 
 # target to preprocess a source file
 PointCloud.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/PointCloud.cpp.i
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/PointCloud.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/PointCloud.cpp.i
 .PHONY : PointCloud.cpp.i
 
 PointCloud.s: PointCloud.cpp.s
@@ -227,7 +243,9 @@ PointCloud.s: PointCloud.cpp.s
 
 # target to generate assembly for a file
 PointCloud.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/PointCloud.cpp.s
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/PointCloud.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/PointCloud.cpp.s
 .PHONY : PointCloud.cpp.s
 
 Render.o: Render.cpp.o
@@ -236,7 +254,9 @@ Render.o: Render.cpp.o
 
 # target to build an object file
 Render.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/Render.cpp.o
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Render.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Render.cpp.o
 .PHONY : Render.cpp.o
 
 Render.i: Render.cpp.i
@@ -245,7 +265,9 @@ Render.i: Render.cpp.i
 
 # target to preprocess a source file
 Render.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/Render.cpp.i
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Render.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Render.cpp.i
 .PHONY : Render.cpp.i
 
 Render.s: Render.cpp.s
@@ -254,7 +276,9 @@ Render.s: Render.cpp.s
 
 # target to generate assembly for a file
 Render.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/Render.cpp.s
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Render.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Render.cpp.s
 .PHONY : Render.cpp.s
 
 RenderInf.o: RenderInf.cpp.o
@@ -289,6 +313,72 @@ RenderInf.cpp.s:
 	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/RenderInf.cpp.s
 	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/RenderInf.cpp.s
 .PHONY : RenderInf.cpp.s
+
+RenderRemoteCaller.o: RenderRemoteCaller.cpp.o
+
+.PHONY : RenderRemoteCaller.o
+
+# target to build an object file
+RenderRemoteCaller.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/RenderRemoteCaller.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/RenderRemoteCaller.cpp.o
+.PHONY : RenderRemoteCaller.cpp.o
+
+RenderRemoteCaller.i: RenderRemoteCaller.cpp.i
+
+.PHONY : RenderRemoteCaller.i
+
+# target to preprocess a source file
+RenderRemoteCaller.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/RenderRemoteCaller.cpp.i
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/RenderRemoteCaller.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/RenderRemoteCaller.cpp.i
+.PHONY : RenderRemoteCaller.cpp.i
+
+RenderRemoteCaller.s: RenderRemoteCaller.cpp.s
+
+.PHONY : RenderRemoteCaller.s
+
+# target to generate assembly for a file
+RenderRemoteCaller.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/RenderRemoteCaller.cpp.s
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/RenderRemoteCaller.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/RenderRemoteCaller.cpp.s
+.PHONY : RenderRemoteCaller.cpp.s
+
+Splitter.o: Splitter.cpp.o
+
+.PHONY : Splitter.o
+
+# target to build an object file
+Splitter.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/Splitter.cpp.o
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Splitter.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Splitter.cpp.o
+.PHONY : Splitter.cpp.o
+
+Splitter.i: Splitter.cpp.i
+
+.PHONY : Splitter.i
+
+# target to preprocess a source file
+Splitter.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/Splitter.cpp.i
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Splitter.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Splitter.cpp.i
+.PHONY : Splitter.cpp.i
+
+Splitter.s: Splitter.cpp.s
+
+.PHONY : Splitter.s
+
+# target to generate assembly for a file
+Splitter.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/Splitter.cpp.s
+	$(MAKE) -f CMakeFiles/Minos.dir/build.make CMakeFiles/Minos.dir/Splitter.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Splitter.cpp.s
+.PHONY : Splitter.cpp.s
 
 client.o: client.cpp.o
 
@@ -397,6 +487,12 @@ help:
 	@echo "... RenderInf.o"
 	@echo "... RenderInf.i"
 	@echo "... RenderInf.s"
+	@echo "... RenderRemoteCaller.o"
+	@echo "... RenderRemoteCaller.i"
+	@echo "... RenderRemoteCaller.s"
+	@echo "... Splitter.o"
+	@echo "... Splitter.i"
+	@echo "... Splitter.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"

@@ -70,9 +70,61 @@ CMakeFiles/Client.dir/client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/client.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/client.cpp -o CMakeFiles/Client.dir/client.cpp.s
 
+CMakeFiles/Client.dir/KDTree.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/KDTree.cpp.o: ../KDTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Client.dir/KDTree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/KDTree.cpp.o -c /home/spectre/CLionProjects/Minos/KDTree.cpp
+
+CMakeFiles/Client.dir/KDTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/KDTree.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spectre/CLionProjects/Minos/KDTree.cpp > CMakeFiles/Client.dir/KDTree.cpp.i
+
+CMakeFiles/Client.dir/KDTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/KDTree.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/KDTree.cpp -o CMakeFiles/Client.dir/KDTree.cpp.s
+
+CMakeFiles/Client.dir/PCNode.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/PCNode.cpp.o: ../PCNode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Client.dir/PCNode.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/PCNode.cpp.o -c /home/spectre/CLionProjects/Minos/PCNode.cpp
+
+CMakeFiles/Client.dir/PCNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/PCNode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spectre/CLionProjects/Minos/PCNode.cpp > CMakeFiles/Client.dir/PCNode.cpp.i
+
+CMakeFiles/Client.dir/PCNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/PCNode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/PCNode.cpp -o CMakeFiles/Client.dir/PCNode.cpp.s
+
+CMakeFiles/Client.dir/PointCloud.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/PointCloud.cpp.o: ../PointCloud.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Client.dir/PointCloud.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/PointCloud.cpp.o -c /home/spectre/CLionProjects/Minos/PointCloud.cpp
+
+CMakeFiles/Client.dir/PointCloud.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/PointCloud.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spectre/CLionProjects/Minos/PointCloud.cpp > CMakeFiles/Client.dir/PointCloud.cpp.i
+
+CMakeFiles/Client.dir/PointCloud.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/PointCloud.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/PointCloud.cpp -o CMakeFiles/Client.dir/PointCloud.cpp.s
+
+CMakeFiles/Client.dir/Render.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/Render.cpp.o: ../Render.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Client.dir/Render.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/Render.cpp.o -c /home/spectre/CLionProjects/Minos/Render.cpp
+
+CMakeFiles/Client.dir/Render.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/Render.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spectre/CLionProjects/Minos/Render.cpp > CMakeFiles/Client.dir/Render.cpp.i
+
+CMakeFiles/Client.dir/Render.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Render.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/Render.cpp -o CMakeFiles/Client.dir/Render.cpp.s
+
 CMakeFiles/Client.dir/RenderInf.cpp.o: CMakeFiles/Client.dir/flags.make
 CMakeFiles/Client.dir/RenderInf.cpp.o: ../RenderInf.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Client.dir/RenderInf.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Client.dir/RenderInf.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/RenderInf.cpp.o -c /home/spectre/CLionProjects/Minos/RenderInf.cpp
 
 CMakeFiles/Client.dir/RenderInf.cpp.i: cmake_force
@@ -83,23 +135,61 @@ CMakeFiles/Client.dir/RenderInf.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/RenderInf.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/RenderInf.cpp -o CMakeFiles/Client.dir/RenderInf.cpp.s
 
+CMakeFiles/Client.dir/Splitter.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/Splitter.cpp.o: ../Splitter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Client.dir/Splitter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/Splitter.cpp.o -c /home/spectre/CLionProjects/Minos/Splitter.cpp
+
+CMakeFiles/Client.dir/Splitter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/Splitter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spectre/CLionProjects/Minos/Splitter.cpp > CMakeFiles/Client.dir/Splitter.cpp.i
+
+CMakeFiles/Client.dir/Splitter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Splitter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/Splitter.cpp -o CMakeFiles/Client.dir/Splitter.cpp.s
+
+CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o: ../RenderRemoteCaller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o -c /home/spectre/CLionProjects/Minos/RenderRemoteCaller.cpp
+
+CMakeFiles/Client.dir/RenderRemoteCaller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/RenderRemoteCaller.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spectre/CLionProjects/Minos/RenderRemoteCaller.cpp > CMakeFiles/Client.dir/RenderRemoteCaller.cpp.i
+
+CMakeFiles/Client.dir/RenderRemoteCaller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/RenderRemoteCaller.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spectre/CLionProjects/Minos/RenderRemoteCaller.cpp -o CMakeFiles/Client.dir/RenderRemoteCaller.cpp.s
+
 # Object files for target Client
 Client_OBJECTS = \
 "CMakeFiles/Client.dir/client.cpp.o" \
-"CMakeFiles/Client.dir/RenderInf.cpp.o"
+"CMakeFiles/Client.dir/KDTree.cpp.o" \
+"CMakeFiles/Client.dir/PCNode.cpp.o" \
+"CMakeFiles/Client.dir/PointCloud.cpp.o" \
+"CMakeFiles/Client.dir/Render.cpp.o" \
+"CMakeFiles/Client.dir/RenderInf.cpp.o" \
+"CMakeFiles/Client.dir/Splitter.cpp.o" \
+"CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o"
 
 # External object files for target Client
 Client_EXTERNAL_OBJECTS =
 
 Client: CMakeFiles/Client.dir/client.cpp.o
+Client: CMakeFiles/Client.dir/KDTree.cpp.o
+Client: CMakeFiles/Client.dir/PCNode.cpp.o
+Client: CMakeFiles/Client.dir/PointCloud.cpp.o
+Client: CMakeFiles/Client.dir/Render.cpp.o
 Client: CMakeFiles/Client.dir/RenderInf.cpp.o
+Client: CMakeFiles/Client.dir/Splitter.cpp.o
+Client: CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o
 Client: CMakeFiles/Client.dir/build.make
 Client: /usr/local/lib/libOgreBites.so.1.12.6
 Client: /usr/local/lib/libOgreOverlay.so.1.12.6
 Client: /usr/local/lib/libOgreRTShaderSystem.so.1.12.6
 Client: /usr/local/lib/libOgreMain.so.1.12.6
 Client: CMakeFiles/Client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

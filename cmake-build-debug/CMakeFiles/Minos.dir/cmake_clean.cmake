@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Minos.dir/PointCloud.cpp.o"
   "CMakeFiles/Minos.dir/Render.cpp.o"
   "CMakeFiles/Minos.dir/RenderInf.cpp.o"
+  "CMakeFiles/Minos.dir/RenderRemoteCaller.cpp.o"
+  "CMakeFiles/Minos.dir/Splitter.cpp.o"
   "CMakeFiles/Minos.dir/main.cpp.o"
   "Minos"
   "Minos.pdb"

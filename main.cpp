@@ -46,12 +46,12 @@ void Test::setup()
 
     Ogre::RenderWindow* renderWindow = getRenderWindow();
     scnMgr->setAmbientLight(Ogre::ColourValue());
-    PointCloud pc0("Pasha_guard_head400K.txt");
-    PointCloud pc1("Centurion_helmet400K.txt");
+    PointCloud pc0("/home/spectre/CLionProjects/Minos/Pasha_guard_head400K.txt");
+    PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
 
     Ogre::SceneNode* node0 = scnMgr->getRootSceneNode()->createChildSceneNode();
     Ogre::SceneNode* node1 = scnMgr->getRootSceneNode()->createChildSceneNode();
-    node0->setScale(0.1, 0.1, 0.1);
+    node0->setScale(0.2, 0.2, 0.2);
 
     PCNode* pcnode0 = new PCNode(&pc0, node0);
     PCNode* pcnode1 = new PCNode(&pc1, node1);
@@ -64,6 +64,13 @@ void Test::setup()
     Ogre::Camera* camera = scnMgr->createCamera("camera");
     Ogre::Viewport* vp = renderWindow->addViewport(camera);
     camera->setNearClipDistance(5);
+    std::cout << camera->getPlaneBoundedVolume().planes[0] << std::endl;
+    std::cout << camera->getPlaneBoundedVolume().planes[1] << std::endl;
+    std::cout << camera->getPlaneBoundedVolume().planes[2] << std::endl;
+    std::cout << camera->getPlaneBoundedVolume().planes[3] << std::endl;
+    std::cout << camera->getPlaneBoundedVolume().planes[4] << std::endl;
+    std::cout << camera->getPlaneBoundedVolume().planes[5] << std::endl;
+
 /*
     std::cout << camera->getProjectionMatrix() << std::endl;
     Ogre::Matrix4 proj = camera->getProjectionMatrix();
@@ -74,6 +81,7 @@ void Test::setup()
     camera->setCustomProjectionMatrix(true, proj);
     std::cout << camera->getProjectionMatrix() << std::endl;
 */
+
     Ogre::SceneNode* camNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     camNode->attachObject(camera);
     camNode->setPosition(0, 0, 50);
@@ -84,23 +92,24 @@ void Test::setup()
 
     std::vector<RenderInfNode> renderList;
 
+    int sub_cones = 2;
     Splitter splitter(camera, vp);
-    splitter.split(2);
-
+    splitter.split(sub_cones);
     Ogre::SceneNode* renderSNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     Render render(scnMgr, renderSNode);
 
-    for(int i = 0; i < 2; ++i)
+    for(int i = 0; i < sub_cones; ++i)
     {
         pcnode0->genRenderInf(splitter.getCombiner(i)->PBV, renderList);
         render.updateData(renderList);
 
         render.updateCamera(
-            camera, 
+            camera,
             splitter.getCombiner(i)->width,
             splitter.getCombiner(i)->height,
             splitter.getCombiner(i)->projMatrix
         );
+
         render.update(splitter.getCombiner(i)->pb);
 
         renderList.clear();

@@ -64,13 +64,13 @@ void Splitter::splitH(double begin, double end, Combiner* &combiner)
     vec4 = combiner->projMatrix.transpose() * vec4;
     vec3 = camNode->convertLocalToWorldDirection(vec4.xyz(), false);
     vec3.normalise();
-    combiner->PBV.planes[5] = Ogre::Plane(vec3, vec3.dotProduct(camera->getPosition()));
+    combiner->PBV.planes[5] = Ogre::Plane(vec3, vec3.dotProduct(camNode->getPosition()));
 
     vec4 = Ogre::Vector4(1, 0, 0, 1);
     vec4 = combiner->projMatrix.transpose() * vec4;
     vec3 = camNode->convertLocalToWorldDirection(vec4.xyz(), false);
     vec3.normalise();
-    combiner->PBV.planes[4] = Ogre::Plane(vec3, vec3.dotProduct(camera->getPosition()));
+    combiner->PBV.planes[4] = Ogre::Plane(vec3, vec3.dotProduct(camNode->getPosition()));
 }
 
 void Splitter::combine(Ogre::PixelBox &pb)

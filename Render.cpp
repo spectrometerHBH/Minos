@@ -18,7 +18,7 @@ void Render::updateCamera(Ogre::Camera* camera, int width, int height, Ogre::Mat
         camera->getName(), 
         Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, 
         Ogre::TEX_TYPE_2D, 
-        width, height, 0, 
+        width, height, 0,
         Ogre::PF_R8G8B8, 
         Ogre::TU_RENDERTARGET 
     );

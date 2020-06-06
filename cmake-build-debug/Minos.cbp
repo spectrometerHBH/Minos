@@ -205,28 +205,44 @@
 			</Target>
 		</Build>
 		<Unit filename="/home/spectre/CLionProjects/Minos/KDTree.cpp">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/KDTree.h">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/PCNode.cpp">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/PCNode.h">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/PointCloud.cpp">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/PointCloud.h">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/Render.cpp">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/Render.h">
+			<Option target="Client"/>
 			<Option target="Minos"/>
+			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/RenderInf.cpp">
 			<Option target="Client"/>
@@ -234,6 +250,26 @@
 			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/spectre/CLionProjects/Minos/RenderInf.h">
+			<Option target="Client"/>
+			<Option target="Minos"/>
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/RenderRemoteCaller.cpp">
+			<Option target="Client"/>
+			<Option target="Minos"/>
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/RenderRemoteCaller.h">
+			<Option target="Client"/>
+			<Option target="Minos"/>
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/Splitter.cpp">
+			<Option target="Client"/>
+			<Option target="Minos"/>
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/home/spectre/CLionProjects/Minos/Splitter.h">
 			<Option target="Client"/>
 			<Option target="Minos"/>
 			<Option target="Server"/>

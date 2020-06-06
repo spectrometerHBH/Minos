@@ -4,7 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/spectre/CLionProjects/Minos/KDTree.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/KDTree.cpp.o"
+  "/home/spectre/CLionProjects/Minos/PCNode.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/PCNode.cpp.o"
+  "/home/spectre/CLionProjects/Minos/PointCloud.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/PointCloud.cpp.o"
+  "/home/spectre/CLionProjects/Minos/Render.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/Render.cpp.o"
   "/home/spectre/CLionProjects/Minos/RenderInf.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/RenderInf.cpp.o"
+  "/home/spectre/CLionProjects/Minos/RenderRemoteCaller.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/RenderRemoteCaller.cpp.o"
+  "/home/spectre/CLionProjects/Minos/Splitter.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/Splitter.cpp.o"
   "/home/spectre/CLionProjects/Minos/server.cpp" "/home/spectre/CLionProjects/Minos/cmake-build-debug/CMakeFiles/Server.dir/server.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
