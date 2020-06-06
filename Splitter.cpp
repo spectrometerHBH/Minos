@@ -33,20 +33,26 @@ void Splitter::split(int numOfRender)
 
     double duration = 1.0 / numOfRender;
     double last = 0;
+    int totalW = 0;
     for(int i = 0; i < numOfRender - 1; ++i, last += duration)
-        splitH(last, last + duration, combiner[i]);
-    splitH(last, 1, combiner[numOfRender - 1]);
+        totalW += splitH(last, last + duration, combiner[i]);
+    splitH(last, 1, combiner[numOfRender - 1], vp->getActualWidth() - totalW);
 }
 
-void Splitter::splitH(double begin, double end, Combiner* &combiner)
+int Splitter::splitH(double begin, double end, Combiner* &combiner, int _width)
 {
     int height = vp->getActualHeight();
     int width = vp->getActualWidth();
     double ratio = end - begin;
-    if(end == 1)
-        width = width - width * begin;
+    if(_width != -1)
+        width = _width;
     else
+    {
         width *= ratio;
+        width = width / 10 * 10;
+    }
+    
+    std::cout << width << std::endl;
 
     combiner = new Combiner(height, width, camera);
     Ogre::Real n = camera->getNearClipDistance();
@@ -59,18 +65,22 @@ void Splitter::splitH(double begin, double end, Combiner* &combiner)
     combiner->projMatrix[0][2] = (_r + _l) / (_r - _l);
 
     Ogre::SceneNode* camNode = camera->getParentSceneNode();
+    Ogre::Vector3 origin = camNode->convertLocalToWorldPosition(Ogre::Vector3(0, 0, 0));
+
     Ogre::Vector4 vec4(-1, 0, 0, 1);
     Ogre::Vector3 vec3;
     vec4 = combiner->projMatrix.transpose() * vec4;
     vec3 = camNode->convertLocalToWorldDirection(vec4.xyz(), false);
     vec3.normalise();
-    combiner->PBV.planes[5] = Ogre::Plane(vec3, vec3.dotProduct(camNode->getPosition()));
+    combiner->PBV.planes[5] = Ogre::Plane(vec3, vec3.dotProduct(origin));
 
     vec4 = Ogre::Vector4(1, 0, 0, 1);
     vec4 = combiner->projMatrix.transpose() * vec4;
     vec3 = camNode->convertLocalToWorldDirection(vec4.xyz(), false);
     vec3.normalise();
-    combiner->PBV.planes[4] = Ogre::Plane(vec3, vec3.dotProduct(camNode->getPosition()));
+    combiner->PBV.planes[4] = Ogre::Plane(vec3, vec3.dotProduct(origin));
+
+    return width;
 }
 
 void Splitter::combine(Ogre::PixelBox &pb)

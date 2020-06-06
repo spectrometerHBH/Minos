@@ -7,6 +7,7 @@ int PCNode::fetchPoint(const Ogre::PlaneBoundedVolume& _plane, std::shared_ptr<f
 {
     Ogre::PlaneBoundedVolume plane = _plane;
     int len = plane.planes.size();
+    std::cout << scnNode->convertWorldToLocalPosition(Ogre::Vector3(0, 0, 1)) << std::endl;
     for(int i = 0; i < len; ++i)
     {
         Ogre::Vector3 origin = - plane.planes[i].d * plane.planes[i].normal;

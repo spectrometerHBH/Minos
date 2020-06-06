@@ -33,7 +33,7 @@ public:
     ~Splitter();
 
 private:
-    void splitH(double, double, Combiner* &);
+    int splitH(double, double, Combiner* &, int = -1);
 };
 
 #endif

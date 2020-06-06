@@ -67,7 +67,7 @@ void Render::updateData(const RenderInfNode& info)
         
         int size = info.size;
         std::cout << size << std::endl;
-        if(sizeof(info.data) > 0)
+        if(size > 0)
         {
             Ogre::SubMesh* subMesh = mesh->createSubMesh();
             subMesh->useSharedVertices = false;
@@ -95,6 +95,7 @@ void Render::updateData(const RenderInfNode& info)
             subMesh->indexData->indexBuffer = ibuf;
             subMesh->indexData->indexCount = size;
             subMesh->indexData->indexStart = 0;
+            subMesh->setMaterialName("mat");
         }
 
         mesh->load();
