@@ -45,8 +45,9 @@ void Test::setup()
     shadergen->addSceneManager(scnMgr);
 
     Ogre::RenderWindow* renderWindow = getRenderWindow();
-    scnMgr->setAmbientLight(Ogre::ColourValue());
+//    scnMgr->setAmbientLight(Ogre::ColourValue());
     PointCloud pc0("Pasha_guard_head400K.txt");
+//    PointCloud pc0("test.txt");
     PointCloud pc1("Centurion_helmet400K.txt");
 
     Ogre::SceneNode* node0 = scnMgr->getRootSceneNode()->createChildSceneNode();

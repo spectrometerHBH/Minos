@@ -57,17 +57,17 @@ KDTree::Node* KDTree::buildTree(int index, std::vector<int>& list, int l, int r)
 
     int mid = (l + r) / 2;
     Ogre::Real mx, my, mz, Mx, My, Mz;
-    mx = Mx = pc->pos[l][0];
-    my = My = pc->pos[l][1];
-    mz = Mz = pc->pos[l][2];
+    mx = Mx = pc->pos[list[l]][0];
+    my = My = pc->pos[list[l]][1];
+    mz = Mz = pc->pos[list[l]][2];
     for(int i = l + 1; i <= r; ++i)
     {
-        mx = std::min(mx, pc->pos[i][0]);
-        Mx = std::max(Mx, pc->pos[i][0]);
-        my = std::min(my, pc->pos[i][1]);
-        My = std::max(My, pc->pos[i][1]);
-        mz = std::min(mz, pc->pos[i][2]);
-        Mz = std::max(Mz, pc->pos[i][2]);
+        mx = std::min(mx, pc->pos[list[i]][0]);
+        Mx = std::max(Mx, pc->pos[list[i]][0]);
+        my = std::min(my, pc->pos[list[i]][1]);
+        My = std::max(My, pc->pos[list[i]][1]);
+        mz = std::min(mz, pc->pos[list[i]][2]);
+        Mz = std::max(Mz, pc->pos[list[i]][2]);
     }
 
     Node* node = new Node(mx, my, mz, Mx, My, Mz, l, r);

@@ -1,0 +1,30 @@
+vertex_program matVP hlsl
+{
+    source mat.hlsl
+    entry_point mat_vp
+    target vs_3_0
+}
+
+vertex_program matFP hlsl
+{
+    source mat.hlsl
+    entry_point mat_fp
+    target fs_3_0
+}
+
+material mat
+{
+    technique
+    {
+        pass
+        {
+            vertex_program_ref matVP
+            {
+                param_named_auto transMatrix worldviewproj_matrix
+            }
+            vertex_program_ref matFP
+            {
+            }
+        }
+    }
+}
