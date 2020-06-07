@@ -3,13 +3,43 @@ vertex_program matVP hlsl
     source mat.hlsl
     entry_point mat_vp
     target vs_3_0
+    default_params
+    {
+        param_named_auto transMatrix worldviewproj_matrix
+    }
 }
 
-vertex_program matFP hlsl
+fragment_program matFP hlsl
 {
     source mat.hlsl
     entry_point mat_fp
     target fs_3_0
+}
+
+vertex_program matVP_gl glsl
+{
+    source mat_vp.glsl
+    default_params
+    {
+        param_named_auto transMatrix worldviewproj_matrix
+    }
+}
+
+fragment_program matFP_gl glsl
+{
+    source mat_fp.glsl
+}
+
+vertex_program passthroughVP unified
+{
+    delegate matVP
+    delegate matVP_gl
+}
+
+fragment_program passthroughFP unified
+{
+    delegate matFP
+    delegate matFP_gl
 }
 
 material mat
@@ -18,11 +48,10 @@ material mat
     {
         pass
         {
-            vertex_program_ref matVP
+            vertex_program_ref passthroughVP
             {
-                param_named_auto transMatrix worldviewproj_matrix
             }
-            vertex_program_ref matFP
+            fragment_program_ref passthroughFP
             {
             }
         }

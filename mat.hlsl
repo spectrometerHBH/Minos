@@ -10,7 +10,7 @@ v2f mat_vp(float4 pos : POSITION,
     )
 {
     v2f result;
-    result.pos = mul(transMatrix, float4(tPos, 1));
+    result.pos = mul(transMatrix, pos);
     result.color = color;
     return result;
 }
