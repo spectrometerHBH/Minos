@@ -6,16 +6,6 @@ char* RenderInfNode::serialize(char* buffer, T value) {
   return buffer + sizeof(T);
 }
 
-char* RenderInfNode::serialize(char* buffer, size_t value) {
-  memcpy(buffer, &value, sizeof(size_t));
-  return buffer + sizeof(size_t);
-}
-
-char* RenderInfNode::serialize(char* buffer, Ogre::uint32 value) {
-  memcpy(buffer, &value, sizeof(size_t));
-  return buffer + sizeof(size_t);
-}
-
 char* RenderInfNode::serialize(char* buffer, Ogre::Vector3 value) {
   buffer = serialize(buffer, value.x);
   buffer = serialize(buffer, value.y);
@@ -48,16 +38,6 @@ template<typename T>
 const char* RenderInfNode::deserialize(const char* buffer, T& value) {
   memcpy(&value, buffer, sizeof(T));
   return const_cast<char*>(buffer + sizeof(T));
-}
-
-const char* RenderInfNode::deserialize(const char* buffer, size_t& value) {
-  memcpy(&value, buffer, sizeof(size_t));
-  return const_cast<char*>(buffer + sizeof(size_t));
-}
-
-const char* RenderInfNode::deserialize(const char* buffer, Ogre::uint32& value) {
-  memcpy(&value, buffer, sizeof(uint32_t));
-  return const_cast<char*>(buffer + sizeof(uint32_t));
 }
 
 const char* RenderInfNode::deserialize(const char* buffer, Ogre::Vector3& value) {
@@ -94,7 +74,8 @@ char* RenderInfNode::toBuffer(char *buffer) const {
   buffer = serialize(buffer, size);
   buffer = serialize(buffer, nodePos);
   buffer = serialize(buffer, nodeScale);
-  buffer = serializeArray(buffer, this->data, size);
+  buffer = serialize(buffer, orientation);
+  buffer = serializeArray(buffer, this->data, size * 7);
   return buffer;
 }
 
@@ -105,8 +86,9 @@ void RenderInfNode::fromBuffer(const char* buffer) {
   buffer = deserialize(buffer, this->size);
   buffer = deserialize(buffer, this->nodePos);
   buffer = deserialize(buffer, this->nodeScale);
-  auto* data_ptr = new float[size];
+  buffer = deserialize(buffer, this->orientation);
+  auto* data_ptr = new float[size * 7];
   this->data.reset(data_ptr);
-  buffer = deserializeArray(buffer, this->data, size);
+  buffer = deserializeArray(buffer, this->data, size * 7);
   this->updateObject = (bool)upd;
 }

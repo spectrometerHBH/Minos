@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "OGRE/Ogre.h"
-#include "RenderRemoteCaller.h"
 #include "PCNode.h"
 #include "OgreApplicationContext.h"
 #include "OgreOverlay.h"
@@ -49,6 +48,8 @@ void Test::setup() {
   Ogre::Viewport* vp = renderWindow->addViewport(camera);
   Ogre::SceneNode* camNode = scnMgr->getRootSceneNode()->createChildSceneNode();
   camNode->attachObject(camera);
+  camNode->setPosition(0, 0, 50);
+  camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
 
   Ogre::SceneNode* renderSNode = scnMgr->getRootSceneNode()->createChildSceneNode();
   Render render(scnMgr, renderSNode);
@@ -74,7 +75,7 @@ void Test::setup() {
       exit(1);
     } else {
       ssize_t len;
-      static char buffer[4000000];
+      static char buffer[8000000];
       const char* packet = buffer;
 
       while ((len = sock.read_n(buffer, sizeof(buffer))) > 0)
@@ -84,24 +85,24 @@ void Test::setup() {
       packet = RenderInfNode::deserialize(packet, command);
       if (command == 0) {
         Ogre::Real nearClipDistance;
-        Ogre::Vector3 position;
+        Ogre::Vector3 position, direction;
         Ogre::Quaternion orientation;
         int width, height;
         Ogre::Matrix4 projMatrix;
         packet = RenderInfNode::deserialize(packet, nearClipDistance);
         packet = RenderInfNode::deserialize(packet, position);
-        packet = RenderInfNode::deserialize(packet, orientation);
+        packet = RenderInfNode::deserialize(packet, direction);
         packet = RenderInfNode::deserialize(packet, width);
         packet = RenderInfNode::deserialize(packet, height);
         packet = RenderInfNode::deserialize(packet, projMatrix);
         std::cout << nearClipDistance << std::endl;
         std::cout << position << std::endl;
-        std::cout << orientation << std::endl;
+        std::cout << direction << std::endl;
         std::cout << width << " " << height << std::endl;
         std::cout << projMatrix << std::endl;
         camera->setNearClipDistance(nearClipDistance);
         camNode->setPosition(position);
-        camNode->setOrientation(orientation);
+        camNode->lookAt(direction, Ogre::Node::TS_PARENT);
 
         render.updateCamera(camera, width, height, projMatrix);
       } else if (command == 1) {
@@ -113,7 +114,13 @@ void Test::setup() {
           renderInfNode.fromBuffer(packet);
           list.push_back(renderInfNode);
         }
-
+        std::cout << list[0].id << std::endl;
+        std::cout << list[0].updateObject << std::endl;
+        std::cout << list[0].size << std::endl;
+        std::cout << list[0].nodePos << std::endl;
+        std::cout << list[0].nodeScale << std::endl;
+        std::cout << list[0].data.get()[0] << " " << list[0].data.get()[1] << " " << list[0].data.get()[2] << " "
+        << list[0].data.get()[3] << " " << list[0].data.get()[4] << "  " << list[0].data.get()[5] << "  " << list[0].data.get()[6] << std::endl;
         render.updateData(list);
       } else if (command == 2) {
         int width, height;
@@ -129,7 +136,6 @@ void Test::setup() {
         std::cout << len << std::endl;
         sock.shutdown(SHUT_WR);
       }
-
       std::cout << "Connection closed from " << sock.peer_address() << std::endl;
     }
   }

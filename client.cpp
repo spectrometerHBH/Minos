@@ -44,19 +44,20 @@ void Test::setup() {
   Ogre::RenderWindow* renderWindow = getRenderWindow();
   scnMgr->setAmbientLight(Ogre::ColourValue());
   PointCloud pc0("/home/spectre/CLionProjects/Minos/Pasha_guard_head400K.txt");
-  PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
+  // PointCloud pc0("/home/spectre/CLionProjects/Minos/test.txt");
+  // PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
 
   Ogre::SceneNode* node0 = scnMgr->getRootSceneNode()->createChildSceneNode();
-  Ogre::SceneNode* node1 = scnMgr->getRootSceneNode()->createChildSceneNode();
+  // Ogre::SceneNode* node1 = scnMgr->getRootSceneNode()->createChildSceneNode();
   node0->setScale(0.2, 0.2, 0.2);
+  node0->rotate(Ogre::Vector3(-1, 0, 0), Ogre::Radian(Ogre::Degree(90)));
+  node0->setPosition(0, 0, -30);
 
   PCNode* pcnode0 = new PCNode(&pc0, node0);
-  PCNode* pcnode1 = new PCNode(&pc1, node1);
+  // PCNode* pcnode1 = new PCNode(&pc1, node1);
   nodeList.push_back(pcnode0);
-  nodeList.push_back(pcnode1);
-  node0->setPosition(0, 0, -30);
-  node0->rotate(Ogre::Vector3(-1, 0, 0), Ogre::Radian(Ogre::Degree(90)));
-  node1->setPosition(0, 0, 100);
+  // nodeList.push_back(pcnode1);
+  // node1->setPosition(0, 0, 100);
 
   Ogre::Camera* camera = scnMgr->createCamera("camera");
   Ogre::Viewport* vp = renderWindow->addViewport(camera);
@@ -87,6 +88,14 @@ void Test::setup() {
 
   for (size_t i = 0; i < renderCaller.size(); ++i) {
     pcnode0->genRenderInf(splitter.getCombiner(i)->PBV, renderList);
+    std::cout << renderList[0].id << std::endl;
+    std::cout << renderList[0].updateObject << std::endl;
+    std::cout << renderList[0].size << std::endl;
+    std::cout << renderList[0].nodePos << std::endl;
+    std::cout << renderList[0].nodeScale << std::endl;
+    std::cout << renderList[0].orientation << std::endl;
+    std::cout << renderList[0].data.get()[0] << " " << renderList[0].data.get()[1] << " " << renderList[0].data.get()[2] << " "
+              << renderList[0].data.get()[3] << " " << renderList[0].data.get()[4] << "  " << renderList[0].data.get()[5] << std::endl;
     renderCaller[i].updateData(renderList);
     renderCaller[i].updateCamera(
         camera,

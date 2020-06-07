@@ -65,7 +65,7 @@ void Render::updateData(const RenderInfNode& info)
       mesh->destroySubMesh(i);
 
     int size = info.size;
-    std::cout << size << std::endl;
+    std::cout << "RenderUpdateData: " << size << std::endl;
     if(size > 0)
     {
       Ogre::SubMesh* subMesh = mesh->createSubMesh();

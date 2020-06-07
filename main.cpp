@@ -47,19 +47,20 @@ void Test::setup()
     Ogre::RenderWindow* renderWindow = getRenderWindow();
     scnMgr->setAmbientLight(Ogre::ColourValue());
     PointCloud pc0("/home/spectre/CLionProjects/Minos/Pasha_guard_head400K.txt");
-    PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
+    // PointCloud pc0("/home/spectre/CLionProjects/Minos/test.txt");
+    // PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
 
     Ogre::SceneNode* node0 = scnMgr->getRootSceneNode()->createChildSceneNode();
     Ogre::SceneNode* node1 = scnMgr->getRootSceneNode()->createChildSceneNode();
     node0->setScale(0.2, 0.2, 0.2);
 
     PCNode* pcnode0 = new PCNode(&pc0, node0);
-    PCNode* pcnode1 = new PCNode(&pc1, node1);
+    // PCNode* pcnode1 = new PCNode(&pc1, node1);
     nodeList.push_back(pcnode0);
-    nodeList.push_back(pcnode1);
+    // nodeList.push_back(pcnode1);
     node0->setPosition(0, 0, -30);
     node0->rotate(Ogre::Vector3(-1, 0, 0), Ogre::Radian(Ogre::Degree(90)));
-    node1->setPosition(0, 0, 100);
+    // node1->setPosition(0, 0, 100);
 
     Ogre::Camera* camera = scnMgr->createCamera("camera");
     Ogre::Viewport* vp = renderWindow->addViewport(camera);
@@ -70,17 +71,6 @@ void Test::setup()
     std::cout << camera->getPlaneBoundedVolume().planes[3] << std::endl;
     std::cout << camera->getPlaneBoundedVolume().planes[4] << std::endl;
     std::cout << camera->getPlaneBoundedVolume().planes[5] << std::endl;
-
-/*
-    std::cout << camera->getProjectionMatrix() << std::endl;
-    Ogre::Matrix4 proj = camera->getProjectionMatrix();
-    for(int i = 0; i < 8; ++i)
-        std::cout << camera->getWorldSpaceCorners()[i] << std::endl;
-    proj[0][0] = proj[0][0] * 2;
-    proj[0][2] = -1;
-    camera->setCustomProjectionMatrix(true, proj);
-    std::cout << camera->getProjectionMatrix() << std::endl;
-*/
 
     Ogre::SceneNode* camNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     camNode->attachObject(camera);
