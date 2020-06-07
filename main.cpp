@@ -102,16 +102,13 @@ void Test::setup()
     {
         pcnode0->genRenderInf(splitter.getCombiner(i)->PBV, renderList);
         render.updateData(renderList);
-
         render.updateCamera(
             camera,
             splitter.getCombiner(i)->width,
             splitter.getCombiner(i)->height,
             splitter.getCombiner(i)->projMatrix
         );
-
         render.update(splitter.getCombiner(i)->pb);
-
         renderList.clear();
     }
 

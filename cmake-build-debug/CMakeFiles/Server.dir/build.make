@@ -185,6 +185,7 @@ Server: CMakeFiles/Server.dir/Splitter.cpp.o
 Server: CMakeFiles/Server.dir/RenderRemoteCaller.cpp.o
 Server: CMakeFiles/Server.dir/build.make
 Server: /usr/local/lib/libOgreBites.so.1.12.6
+Server: /usr/local/lib/libsockpp.so
 Server: /usr/local/lib/libOgreOverlay.so.1.12.6
 Server: /usr/local/lib/libOgreRTShaderSystem.so.1.12.6
 Server: /usr/local/lib/libOgreMain.so.1.12.6

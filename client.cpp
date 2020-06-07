@@ -7,16 +7,13 @@
 #include "PCNode.h"
 #include "Splitter.h"
 #include "OgreApplicationContext.h"
-#include "Render.h"
 #include "OgreOverlay.h"
 #include "OgreOverlayManager.h"
 #include "OgreOverlaySystem.h"
 #include "OgreOverlayContainer.h"
 #include "OgreRectangle2D.h"
-#include "Ogre.h"
 
-class Test : public OgreBites::ApplicationContext
-{
+class Test : public OgreBites::ApplicationContext {
  private:
   Ogre::Root* root;
   Ogre::SceneManager* scnMgr;
@@ -33,8 +30,7 @@ class Test : public OgreBites::ApplicationContext
 
 Test::Test() : OgreBites::ApplicationContext("Ogre_Test") {}
 
-void Test::setup()
-{
+void Test::setup() {
   OgreBites::ApplicationContext::setup();
   root = OgreBites::ApplicationContext::getRoot();
   scnMgr = root->createSceneManager();
@@ -71,17 +67,6 @@ void Test::setup()
   std::cout << camera->getPlaneBoundedVolume().planes[3] << std::endl;
   std::cout << camera->getPlaneBoundedVolume().planes[4] << std::endl;
   std::cout << camera->getPlaneBoundedVolume().planes[5] << std::endl;
-
-/*
-    std::cout << camera->getProjectionMatrix() << std::endl;
-    Ogre::Matrix4 proj = camera->getProjectionMatrix();
-    for(int i = 0; i < 8; ++i)
-        std::cout << camera->getWorldSpaceCorners()[i] << std::endl;
-    proj[0][0] = proj[0][0] * 2;
-    proj[0][2] = -1;
-    camera->setCustomProjectionMatrix(true, proj);
-    std::cout << camera->getProjectionMatrix() << std::endl;
-*/
 
   Ogre::SceneNode* camNode = scnMgr->getRootSceneNode()->createChildSceneNode();
   camNode->attachObject(camera);
@@ -129,7 +114,8 @@ void Test::setup()
   );
   texture->getBuffer(0, 0)->blitFromMemory(pb);
 
-  Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create("Background", "General");
+  Ogre::MaterialPtr
+      material = Ogre::MaterialManager::getSingleton().create("Background", "General");
   material->getTechnique(0)->getPass(0)->createTextureUnitState("Tex");
   material->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
   material->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
@@ -148,8 +134,7 @@ void Test::setup()
   node->attachObject(rect);
 }
 
-int main()
-{
+int main() {
   Test test;
   test.initApp();
   test.getRoot()->startRendering();

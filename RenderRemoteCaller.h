@@ -7,26 +7,14 @@
 #include "Ogre.h"
 #include "RenderInf.h"
 
-#include <brynet/net/SocketLibFunction.hpp>
-#include <brynet/net/TcpService.hpp>
-#include <brynet/net/AsyncConnector.hpp>
-#include <brynet/net/wrapper/ConnectionBuilder.hpp>
-
-using namespace brynet;
-using namespace brynet::net;
+#include "sockpp/tcp_connector.h"
+#include "sockpp/version.h"
 
 class RenderRemoteCaller {
  public:
-  RenderRemoteCaller(int port_) : port(port_) {
-    auto service = TcpService::Create();
-    service->startWorkerThread(1);
-    auto connector = AsyncConnector::Create();
-    connector->startWorkerThread();
-    connectionBuilder.configureService(service).configureConnector(connector);
-  }
+  RenderRemoteCaller(in_port_t port_) : port(port_) {}
 
-  int port;
-  wrapper::ConnectionBuilder connectionBuilder;
+  in_port_t port;
 
   void updateCamera(Ogre::Camera*, Ogre::SceneNode*, int, int, Ogre::Matrix4);
   void updateData(const std::vector<RenderInfNode>&);

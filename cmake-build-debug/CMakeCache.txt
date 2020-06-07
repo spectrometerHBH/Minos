@@ -238,6 +238,9 @@ ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
 
+//The directory containing a CMake configuration file for SOCKPP.
+SOCKPP_DIR:PATH=SOCKPP_DIR-NOTFOUND
+
 //Path to a file.
 ZLIB_INCLUDE_DIR:PATH=/usr/include
 
@@ -258,6 +261,12 @@ pkgcfg_lib__OPENSSL_crypto:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
 
 //Path to a library.
 pkgcfg_lib__OPENSSL_ssl:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
+
+//The directory containing a CMake configuration file for sockpp-static.
+sockpp-static_DIR:PATH=sockpp-static_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for sockpp.
+sockpp_DIR:PATH=sockpp_DIR-NOTFOUND
 
 
 ########################

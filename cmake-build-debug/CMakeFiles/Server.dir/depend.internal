@@ -1234,8 +1234,19 @@ CMakeFiles/Server.dir/Splitter.cpp.o
  /usr/local/include/OGRE/Threading/OgreThreadHeadersSTD.h
  /usr/local/include/OGRE/Threading/OgreThreadHeadersTBB.h
 CMakeFiles/Server.dir/server.cpp.o
+ /home/spectre/CLionProjects/Minos/KDTree.h
+ /home/spectre/CLionProjects/Minos/PCNode.h
+ /home/spectre/CLionProjects/Minos/PointCloud.h
+ /home/spectre/CLionProjects/Minos/Render.h
  /home/spectre/CLionProjects/Minos/RenderInf.h
+ /home/spectre/CLionProjects/Minos/RenderRemoteCaller.h
  /home/spectre/CLionProjects/Minos/server.cpp
+ /usr/local/include/OGRE/Bites/OgreApplicationContext.h
+ /usr/local/include/OGRE/Bites/OgreApplicationContextBase.h
+ /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+ /usr/local/include/OGRE/Bites/OgreInput.h
+ /usr/local/include/OGRE/Bites/OgreSGTechniqueResolverListener.h
+ /usr/local/include/OGRE/Bites/OgreStaticPluginLoader.h
  /usr/local/include/OGRE/Ogre.h
  /usr/local/include/OGRE/OgreAlignedAllocator.h
  /usr/local/include/OGRE/OgreAnimable.h
@@ -1274,6 +1285,7 @@ CMakeFiles/Server.dir/server.cpp.o
  /usr/local/include/OGRE/OgreEntity.h
  /usr/local/include/OGRE/OgreException.h
  /usr/local/include/OGRE/OgreExports.h
+ /usr/local/include/OGRE/OgreFileSystemLayer.h
  /usr/local/include/OGRE/OgreFrameListener.h
  /usr/local/include/OGRE/OgreFrustum.h
  /usr/local/include/OGRE/OgreGpuProgram.h
@@ -1330,6 +1342,7 @@ CMakeFiles/Server.dir/server.cpp.o
  /usr/local/include/OGRE/OgrePlane.h
  /usr/local/include/OGRE/OgrePlaneBoundedVolume.h
  /usr/local/include/OGRE/OgrePlatform.h
+ /usr/local/include/OGRE/OgrePlugin.h
  /usr/local/include/OGRE/OgrePolygon.h
  /usr/local/include/OGRE/OgrePose.h
  /usr/local/include/OGRE/OgrePrerequisites.h
@@ -1337,6 +1350,7 @@ CMakeFiles/Server.dir/server.cpp.o
  /usr/local/include/OGRE/OgreQuaternion.h
  /usr/local/include/OGRE/OgreRadixSort.h
  /usr/local/include/OGRE/OgreRay.h
+ /usr/local/include/OGRE/OgreRectangle2D.h
  /usr/local/include/OGRE/OgreRenderObjectListener.h
  /usr/local/include/OGRE/OgreRenderOperation.h
  /usr/local/include/OGRE/OgreRenderQueue.h
@@ -1361,7 +1375,9 @@ CMakeFiles/Server.dir/server.cpp.o
  /usr/local/include/OGRE/OgreSceneManagerEnumerator.h
  /usr/local/include/OGRE/OgreSceneNode.h
  /usr/local/include/OGRE/OgreSceneQuery.h
+ /usr/local/include/OGRE/OgreScriptCompiler.h
  /usr/local/include/OGRE/OgreScriptLoader.h
+ /usr/local/include/OGRE/OgreScriptTranslator.h
  /usr/local/include/OGRE/OgreSerializer.h
  /usr/local/include/OGRE/OgreShadowCameraSetup.h
  /usr/local/include/OGRE/OgreShadowCameraSetupFocused.h
@@ -1397,6 +1413,38 @@ CMakeFiles/Server.dir/server.cpp.o
  /usr/local/include/OGRE/OgreVertexIndexData.h
  /usr/local/include/OGRE/OgreViewport.h
  /usr/local/include/OGRE/OgreWorkQueue.h
+ /usr/local/include/OGRE/Overlay/OgreOverlay.h
+ /usr/local/include/OGRE/Overlay/OgreOverlayContainer.h
+ /usr/local/include/OGRE/Overlay/OgreOverlayElement.h
+ /usr/local/include/OGRE/Overlay/OgreOverlayManager.h
+ /usr/local/include/OGRE/Overlay/OgreOverlayPrerequisites.h
+ /usr/local/include/OGRE/Overlay/OgreOverlayProfileSessionListener.h
+ /usr/local/include/OGRE/Overlay/OgreOverlaySystem.h
+ /usr/local/include/OGRE/Overlay/OgreUTFString.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreRTShaderConfig.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreRTShaderExports.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreRTShaderSystem.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderExHardwareSkinning.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderExIntegratedPSSM3.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderExLayeredBlending.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderExNormalMapLighting.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderExPerPixelLighting.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderFFPColour.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderFFPFog.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderFFPLighting.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderFFPTexturing.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderFFPTransform.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderFunction.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderFunctionAtom.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderGenerator.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderParameter.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderPrerequisites.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderProgramManager.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderProgramSet.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderProgramWriter.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderRenderState.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderScriptTranslator.h
+ /usr/local/include/OGRE/RTShaderSystem/OgreShaderSubRenderState.h
  /usr/local/include/OGRE/Threading/OgreThreadDefines.h
  /usr/local/include/OGRE/Threading/OgreThreadDefinesBoost.h
  /usr/local/include/OGRE/Threading/OgreThreadDefinesNone.h

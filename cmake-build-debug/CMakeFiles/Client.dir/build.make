@@ -185,6 +185,7 @@ Client: CMakeFiles/Client.dir/Splitter.cpp.o
 Client: CMakeFiles/Client.dir/RenderRemoteCaller.cpp.o
 Client: CMakeFiles/Client.dir/build.make
 Client: /usr/local/lib/libOgreBites.so.1.12.6
+Client: /usr/local/lib/libsockpp.so
 Client: /usr/local/lib/libOgreOverlay.so.1.12.6
 Client: /usr/local/lib/libOgreRTShaderSystem.so.1.12.6
 Client: /usr/local/lib/libOgreMain.so.1.12.6

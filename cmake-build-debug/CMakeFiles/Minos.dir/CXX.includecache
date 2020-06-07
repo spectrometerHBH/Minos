@@ -17,6 +17,10 @@ RenderRemoteCaller.h
 /home/spectre/CLionProjects/Minos/RenderRemoteCaller.h
 RenderInf.h
 /home/spectre/CLionProjects/Minos/RenderInf.h
+sockpp/tcp_connector.h
+-
+sockpp/version.h
+-
 
 /home/spectre/CLionProjects/Minos/RenderRemoteCaller.h
 iostream
@@ -29,14 +33,10 @@ Ogre.h
 /home/spectre/CLionProjects/Minos/Ogre.h
 RenderInf.h
 /home/spectre/CLionProjects/Minos/RenderInf.h
-brynet/net/SocketLibFunction.hpp
--
-brynet/net/TcpService.hpp
--
-brynet/net/AsyncConnector.hpp
--
-brynet/net/wrapper/ConnectionBuilder.hpp
--
+sockpp/tcp_connector.h
+/home/spectre/CLionProjects/Minos/sockpp/tcp_connector.h
+sockpp/version.h
+/home/spectre/CLionProjects/Minos/sockpp/version.h
 
 /usr/local/include/OGRE/Ogre.h
 OgrePrerequisites.h
