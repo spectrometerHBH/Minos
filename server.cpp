@@ -75,7 +75,7 @@ void Test::setup() {
       exit(1);
     } else {
       ssize_t len;
-      static char buffer[8000000];
+      static char buffer[20000000];
       const char* packet = buffer;
 
       while ((len = sock.read_n(buffer, sizeof(buffer))) > 0)
@@ -91,18 +91,21 @@ void Test::setup() {
         Ogre::Matrix4 projMatrix;
         packet = RenderInfNode::deserialize(packet, nearClipDistance);
         packet = RenderInfNode::deserialize(packet, position);
+        packet = RenderInfNode::deserialize(packet, orientation);
         packet = RenderInfNode::deserialize(packet, direction);
         packet = RenderInfNode::deserialize(packet, width);
         packet = RenderInfNode::deserialize(packet, height);
         packet = RenderInfNode::deserialize(packet, projMatrix);
         std::cout << nearClipDistance << std::endl;
         std::cout << position << std::endl;
+        std::cout << orientation << std::endl;
         std::cout << direction << std::endl;
         std::cout << width << " " << height << std::endl;
         std::cout << projMatrix << std::endl;
         camera->setNearClipDistance(nearClipDistance);
         camNode->setPosition(position);
         camNode->lookAt(direction, Ogre::Node::TS_PARENT);
+        camNode->setOrientation(orientation);
 
         render.updateCamera(camera, width, height, projMatrix);
       } else if (command == 1) {

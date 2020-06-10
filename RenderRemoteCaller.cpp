@@ -10,6 +10,7 @@ void RenderRemoteCaller::updateCamera(Ogre::Camera* camera, Ogre::SceneNode* cam
   buffer = RenderInfNode::serialize(buffer, 0);
   buffer = RenderInfNode::serialize(buffer, camera->getNearClipDistance());
   buffer = RenderInfNode::serialize(buffer, camNode->_getDerivedPosition());
+  buffer = RenderInfNode::serialize(buffer, camNode->_getDerivedOrientation());
   buffer = RenderInfNode::serialize(buffer, camera->getRealDirection());
   buffer = RenderInfNode::serialize(buffer, width);
   buffer = RenderInfNode::serialize(buffer, height);
@@ -17,6 +18,7 @@ void RenderRemoteCaller::updateCamera(Ogre::Camera* camera, Ogre::SceneNode* cam
   std::cout << "Camera " << size_t(buffer - start) << std::endl;
   std::cout << camera->getNearClipDistance() << std::endl;
   std::cout << camNode->_getDerivedPosition() << std::endl;
+  std::cout << camNode->_getDerivedOrientation() << std::endl;
   std::cout << camera->getRealDirection() << std::endl;
   std::cout << width << " " << height << std::endl;
   std::cout << projMatrix << std::endl;

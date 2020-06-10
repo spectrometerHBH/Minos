@@ -73,7 +73,10 @@ int Splitter::splitH(double begin, double end, Combiner*& combiner, int _width) 
   vec3 = camNode->convertLocalToWorldDirection(vec4.xyz(), false);
   vec3.normalise();
   combiner->PBV.planes[4] = Ogre::Plane(vec3, vec3.dotProduct(origin));
-
+  /*
+  combiner->projMatrix[0][0] = n * 2 / (r - l);
+  combiner->projMatrix[0][2] = (r + l) / (r - l);
+  */
   return width;
 }
 

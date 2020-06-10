@@ -35,29 +35,28 @@ class Test : public OgreBites::ApplicationContext, public OgreBites::InputListen
 
 Test::Test() : OgreBites::ApplicationContext("Ogre_Test") {}
 
-
 bool Test::keyPressed(const OgreBites::KeyboardEvent& evt) {
   Ogre::Vector3 translate = Ogre::Vector3(0, 0, 0);
-
+  Ogre::Real delta = 1;
   switch (evt.keysym.sym) {
     case OgreBites::SDLK_ESCAPE: {
       getRoot()->queueEndRendering();
       break;
     }
     case int('w'): {
-      translate += Ogre::Vector3(0, 1e-1, 0);
+      translate += Ogre::Vector3(0, delta, 0);
       break;
     }
     case int('s'): {
-      translate += Ogre::Vector3(0, -1e-1, 0);
+      translate += Ogre::Vector3(0, -delta, 0);
       break;
     }
     case int('a'): {
-      translate += Ogre::Vector3(-1e-1, 0, 0);
+      translate += Ogre::Vector3(-delta, 0, 0);
       break;
     }
     case int('d'): {
-      translate += Ogre::Vector3(1e-1, 0, 0);
+      translate += Ogre::Vector3(delta, 0, 0);
       break;
     }
     default:
@@ -114,6 +113,9 @@ void Test::draw() {
   Ogre::PixelBox pb(width, height, 1, Ogre::PF_R8G8B8, new char[3 * width * height]);
   splitter.combine(pb);
 
+  texture->setWidth(vp->getActualWidth());
+  texture->setHeight(vp->getActualHeight());
+
   texture->getBuffer(0, 0)->blitFromMemory(pb);
 }
 
@@ -132,7 +134,7 @@ void Test::setup() {
 
   renderWindow = getRenderWindow();
   scnMgr->setAmbientLight(Ogre::ColourValue());
-  PointCloud pc0("/home/spectre/CLionProjects/Minos/Pasha_guard_head400K.txt");
+  PointCloud* pc0 = new PointCloud("/home/spectre/CLionProjects/Minos/Pasha_guard_head400K.txt");
   // PointCloud pc0("/home/spectre/CLionProjects/Minos/test.txt");
   // PointCloud pc1("/home/spectre/CLionProjects/Minos/Centurion_helmet400K.txt");
 
@@ -141,7 +143,7 @@ void Test::setup() {
   node0->rotate(Ogre::Vector3(-1, 0, 0), Ogre::Radian(Ogre::Degree(90)));
   node0->setPosition(0, 0, -30);
 
-  PCNode* pcnode0 = new PCNode(&pc0, node0);
+  PCNode* pcnode0 = new PCNode(pc0, node0);
   nodeList.push_back(pcnode0);
 
   camera = scnMgr->createCamera("camera");
@@ -151,6 +153,7 @@ void Test::setup() {
   camNode->attachObject(camera);
   camNode->setPosition(0, 0, 50);
   camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
+  camNode->translate(1, 0, 0);
 
   std::cout << camera->getPlaneBoundedVolume().planes[0] << std::endl;
   std::cout << camera->getPlaneBoundedVolume().planes[1] << std::endl;

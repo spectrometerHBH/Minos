@@ -52,7 +52,7 @@ void Test::setup()
 
     Ogre::SceneNode* node0 = scnMgr->getRootSceneNode()->createChildSceneNode();
     Ogre::SceneNode* node1 = scnMgr->getRootSceneNode()->createChildSceneNode();
-    node0->setScale(0.2, 0.2, 0.2);
+    node0->setScale(0.05, 0.05, 0.05);
 
     PCNode* pcnode0 = new PCNode(&pc0, node0);
     // PCNode* pcnode1 = new PCNode(&pc1, node1);
@@ -76,6 +76,7 @@ void Test::setup()
     camNode->attachObject(camera);
     camNode->setPosition(0, 0, 50);
     camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
+    camNode->translate(1, 0, 0);
 
     int height = vp->getActualHeight();
     int width = vp->getActualWidth();
